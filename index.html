@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Максим Лазарев — Системный аналитик | Резюме + Портфолио</title>
+<meta name="description" content="Системный аналитик: требования, BPMN/UML, интеграции, API, SQL. Резюме и портфолио в одном премиальном лендинге." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0e;
+    --panel:#111217cc; /* glass card */
+    --panel-solid:#12131a; /* solid card */
+    --txt:#ececf3;
+    --muted:#b6b7c5;
+    --gold:#d9b66f;
+    --gold-2:#b8934a;
+    --stroke:#272a36;
+    --shadow:0 20px 40px rgba(0,0,0,.35);
+    --radius:18px;
+    --radius-xl:26px;
+    --gap:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif; color:var(--txt); background:radial-gradient(1200px 700px at 80% -10%, rgba(217,182,111,.12), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(185,147,74,.10), transparent 55%), var(--bg);
+    line-height:1.55; letter-spacing:.2px;
+  }
+  .container{width:min(1150px, 92vw); margin:0 auto}
+  a{color:var(--gold); text-decoration:none}
+  a:hover{filter:saturate(1.2)}
+  /* Header */
+  header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(10px); background:linear-gradient(180deg, rgba(12,12,15,.8), rgba(12,12,15,.3)); border-bottom:1px solid var(--stroke)}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+  .brand{display:flex; align-items:center; gap:12px}
+  .logo{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg, var(--gold), var(--gold-2)); box-shadow:0 10px 20px rgba(217,182,111,.25)}
+  .brand h1{margin:0; font:700 18px/1 Playfair Display, serif; letter-spacing:.3px}
+  .nav a.btn{padding:10px 16px; border:1px solid var(--gold-2); border-radius:12px}
+  .nav .cta{background:linear-gradient(135deg, var(--gold-2), var(--gold)); color:#111; font-weight:600; border:none; box-shadow:0 10px 24px rgba(217,182,111,.28)}
+  .nav .cta:hover{transform:translateY(-1px)}
+
+  /* Hero */
+  .hero{position:relative; padding:72px 0 40px}
+  .grid-hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:40px}
+  .kicker{display:inline-flex; align-items:center; gap:10px; padding:6px 10px; border:1px solid var(--stroke); border-radius:999px; color:var(--muted); font-size:12px; letter-spacing:.3px}
+  .spark{width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg, var(--gold), var(--gold-2)); box-shadow:0 0 12px var(--gold)}
+  .h1{font:700 clamp(28px, 4.8vw, 56px)/1.08 Playfair Display, serif; margin:.5rem 0 1rem}
+  .lead{color:var(--muted); font-size:clamp(15px, 1.8vw, 18px)}
+  .badges{display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 28px}
+  .badge{padding:8px 12px; border:1px solid var(--stroke); border-radius:999px; color:var(--muted); font-size:13px}
+  .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:14px; border:1px solid var(--stroke); color:var(--txt)}
+  .btn.primary{background:linear-gradient(135deg, var(--gold-2), var(--gold)); color:#111; font-weight:700; border:none}
+  .btn.ghost:hover{border-color:var(--gold-2); color:var(--gold)}
+  .card-hero{border:1px solid var(--stroke); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border-radius:var(--radius-xl); padding:22px; display:grid; gap:14px; box-shadow:var(--shadow)}
+  .stat{display:flex; align-items:flex-start; gap:12px}
+  .stat .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--gold), var(--gold-2)); box-shadow:0 0 10px rgba(217,182,111,.6)}
+  .stat b{font-size:15px}
+  .stat small{display:block; color:var(--muted)}
+
+  /* Section */
+  section{padding:64px 0}
+  .section-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:26px}
+  .section-head h2{margin:0; font:700 clamp(22px, 3vw, 30px)/1.1 Playfair Display, serif}
+  .sub{color:var(--muted)}
+
+  /* Skills */
+  .skills{display:grid; grid-template-columns: repeat(4, 1fr); gap:var(--gap)}
+  .chip{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border:1px solid var(--stroke); border-radius:999px; padding:10px 12px; text-align:center}
+  .stack{display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap:var(--gap)}
+  .tool{border:1px dashed var(--stroke); border-radius:14px; padding:14px; text-align:center; color:var(--muted)}
+
+  /* Cases */
+  .cases{display:grid; grid-template-columns: repeat(3, 1fr); gap:var(--gap)}
+  .case{position:relative; overflow:hidden; border-radius:20px; border:1px solid var(--stroke); background:var(--panel-solid)}
+  .case .thumb{aspect-ratio: 16/10; background:radial-gradient(110% 70% at 0% 0%, rgba(217,182,111,.18), transparent), linear-gradient(180deg, #151724, #0f1118); border-bottom:1px solid var(--stroke)}
+  .case .body{padding:16px 16px 18px}
+  .case h3{margin:6px 0 6px; font:600 18px/1.2 Inter}
+  .meta{display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:12px}
+  .case .actions{display:flex; gap:10px; margin-top:12px}
+  .case .actions .btn{padding:9px 12px; font-size:14px}
+  .tag{font-size:12px; border:1px solid var(--stroke); padding:6px 10px; border-radius:999px; color:var(--muted)}
+
+  /* Timeline */
+  .timeline{display:grid; grid-template-columns: 1fr; gap:14px}
+  .item{display:grid; grid-template-columns: 140px 1fr; gap:16px; padding:16px; border:1px solid var(--stroke); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0))}
+  .item .when{color:var(--muted)}
+  .item h4{margin:0 0 6px}
+  .item p{margin:0; color:var(--muted)}
+  .bullets{display:grid; gap:6px; margin-top:10px}
+  .bullets li{margin-left:18px}
+
+  /* Footer */
+  footer{padding:40px 0; border-top:1px solid var(--stroke); color:var(--muted)}
+
+  /* Utilities */
+  .row{display:flex; gap:var(--gap); flex-wrap:wrap}
+  .card{border:1px solid var(--stroke); border-radius:var(--radius); padding:16px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0))}
+  .muted{color:var(--muted)}
+  .center{text-align:center}
+  .hide{display:none}
+
+  /* Responsive */
+  @media (max-width: 980px){
+    .grid-hero{grid-template-columns:1fr}
+    .skills{grid-template-columns: repeat(2, 1fr)}
+    .cases{grid-template-columns:1fr 1fr}
+    .stack{grid-template-columns: repeat(3, 1fr)}
+    .item{grid-template-columns: 1fr}
+  }
+  @media (max-width: 640px){
+    .cases{grid-template-columns:1fr}
+  }
+
+  /* Reveal on scroll */
+  [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+  [data-reveal].in{opacity:1; transform:none}
+
+  /* Print (save as PDF) */
+  @media print{
+    header, .hero-cta .btn.ghost, .case .actions, .nav .cta{display:none !important}
+    .case .thumb{background:#fff}
+    body{background:#fff; color:#000}
+    .card, .item, .case{border-color:#aaa}
+    a{color:#000}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Максим Лазарев · Системный аналитик</h1>
+      </div>
+      <nav class="row">
+        <a href="#cases" class="btn">Кейсы</a>
+        <a href="#skills" class="btn">Навыки</a>
+        <a href="#experience" class="btn">Опыт</a>
+        <a href="#contacts" class="btn cta">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container grid-hero">
+        <div>
+          <div class="kicker"><span class="spark"></span> Удалённо · Middle/Senior System Analyst</div>
+          <h2 class="h1" data-reveal>Делаю бизнес-процессы прозрачными, требования — однозначными, а разработку — предсказуемой</h2>
+          <p class="lead" data-reveal>Сильные стороны: BPMN/UML, сбор и формализация требований, интеграции (REST/SOAP), документация в Confluence/Notion, SQL, прототипирование, Bitrix24 (D7), AI‑боты и RAG‑системы для автоматизации.</p>
+          <div class="badges" data-reveal>
+            <div class="badge">BPMN · UML · Use Cases · User Stories</div>
+            <div class="badge">API: REST/SOAP · JSON/XML</div>
+            <div class="badge">SQL · Postgres/MySQL</div>
+            <div class="badge">Jira · Confluence · Notion</div>
+            <div class="badge">Bitrix24 (коробка, D7)</div>
+            <div class="badge">RAG · AI‑аудит звонков</div>
+          </div>
+          <div class="hero-cta" data-reveal>
+            <a class="btn primary" href="#contacts">Обсудить задачу</a>
+            <a class="btn ghost" href="#cases">Смотреть кейсы</a>
+            <a class="btn ghost" href="#resume">Скачать PDF</a>
+          </div>
+        </div>
+        <aside class="card-hero" aria-label="Краткие факты" data-reveal>
+          <div class="stat"><span class="dot"></span><div><b>15+ сложных процессов</b><small>моделировал и запускал (HR, Support, Payments)</small></div></div>
+          <div class="stat"><span class="dot"></span><div><b>AI‑инициативы</b><small>внедрение RAG‑ботов и аудита звонков; отчёты PDF/Telegram</small></div></div>
+          <div class="stat"><span class="dot"></span><div><b>Bitrix24 D7</b><small>статусные БП, Highload‑блоки, ORM, UI‑фильтры</small></div></div>
+          <div class="stat"><span class="dot"></span><div><b>Фокус на результате</b><small>сроки, метрики, прозрачные артефакты (BPMN/UML/SRS)</small></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><h2>Навыки и фокус</h2><div class="sub">Что именно я делаю лучше всего</div></div>
+        <div class="skills" data-reveal>
+          <div class="chip">Сбор и уточнение требований (интервью, воркшопы)</div>
+          <div class="chip">Моделирование BPMN/UML · Use Case · ERD</div>
+          <div class="chip">API-интеграции · REST/SOAP · JSON/XML</div>
+          <div class="chip">Проектирование данных · SQL · отчёты</div>
+          <div class="chip">Спецификации · SRS · User Stories</div>
+          <div class="chip">Прототипы UI · Miro/Figma</div>
+          <div class="chip">Bitrix24 (коробка) · D7 · HL‑блоки</div>
+          <div class="chip">AI‑боты · RAG · аналитика звонков</div>
+        </div>
+
+        <div class="section-head" style="margin-top:28px"><h2>Инструменты</h2><div class="sub">Регулярно использую в проектах</div></div>
+        <div class="stack" data-reveal>
+          <div class="tool">Jira</div>
+          <div class="tool">Confluence</div>
+          <div class="tool">Miro</div>
+          <div class="tool">Figma</div>
+          <div class="tool">Postman</div>
+          <div class="tool">Swagger</div>
+          <div class="tool">Bitrix24</div>
+          <div class="tool">SQL</div>
+          <div class="tool">Python</div>
+          <div class="tool">Git</div>
+          <div class="tool">Telegram API</div>
+          <div class="tool">Notion</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES / PORTFOLIO -->
+    <section id="cases">
+      <div class="container">
+        <div class="section-head"><h2>Выбранные кейсы</h2><div class="sub">Клик по карточке — детали и артефакты</div></div>
+        <div class="cases" data-reveal>
+          <!-- Case 1 -->
+          <article class="case">
+            <div class="thumb" role="img" aria-label="BPMN процесс увольнения"></div>
+            <div class="body">
+              <div class="meta"><span class="tag">BPMN/UML</span><span class="tag">Bitrix24 D7</span><span class="tag">HR</span></div>
+              <h3>Статусный процесс «Увольнение сотрудника» (Bitrix24, коробка)</h3>
+              <p class="muted">Собрал требования, сделал BPMN, статусы, роли и уведомления. Реализованы проверки, документы, интеграции.</p>
+              <div class="actions">
+                <button class="btn" data-open="modal-bpmn">Показать схему</button>
+                <a class="btn" href="#" target="_blank" rel="noopener">SRS (PDF)</a>
+              </div>
+            </div>
+          </article>
+          <!-- Case 2 -->
+          <article class="case">
+            <div class="thumb" aria-label="AI аудит звонков"></div>
+            <div class="body">
+              <div class="meta"><span class="tag">AI/RAG</span><span class="tag">Телефония</span><span class="tag">Отчёты</span></div>
+              <h3>AI‑аудит звонков: чек‑листы, метрики, PDF/Telegram отчёты</h3>
+              <p class="muted">Спроектировал JSON‑схемы, отчётность (день/месяц), интеграции с Telegram, базу для метрик операторов.</p>
+              <div class="actions">
+                <button class="btn" data-open="modal-ai">Скриншоты</button>
+                <a class="btn" href="#" target="_blank">Демо‑бот</a>
+              </div>
+            </div>
+          </article>
+          <!-- Case 3 -->
+          <article class="case">
+            <div class="thumb" aria-label="RAG‑боты"></div>
+            <div class="body">
+              <div class="meta"><span class="tag">RAG</span><span class="tag">Интеграции</span><span class="tag">Docs</span></div>
+              <h3>RAG‑чатботы для компаний: FAQ/Вики, интеграции и база знаний</h3>
+              <p class="muted">Проектирование векторной БД, пайплайнов, прототип диалогов; KPI по точности и срокам внедрения.</p>
+              <div class="actions">
+                <button class="btn" data-open="modal-rag">Материалы</button>
+                <a class="btn" href="#" target="_blank">GitHub/Docs</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="muted" style="margin-top:14px" data-reveal>Полный список кейсов доступен по запросу. Могу быстро подготовить демо под вашу предметную область.</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head"><h2>Опыт</h2><div class="sub">Коротко и по делу</div></div>
+        <div class="timeline" data-reveal>
+          <div class="item">
+            <div class="when">2024–2025 · контракт/проектно</div>
+            <div>
+              <h4>Системный аналитик / Solution Designer</h4>
+              <p>Bitrix24 (коробка), AI‑инициативы (RAG‑боты, аудит звонков), интеграции, отчёты.</p>
+              <ul class="bullets">
+                <li>BPMN/UML, SRS, User Stories, политика ролей/уведомлений</li>
+                <li>UI‑прототипы, согласование с заказчиком, декомпозиция задач</li>
+                <li>Контроль реализации: backlog, критерии готовности, приёмка</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">Ранее</div>
+            <div>
+              <h4>Бизнес‑/системный анализ в прикладных проектах</h4>
+              <p>Разные домены: сервис/услуги, внутренние порталы, телефония, интеграции с внешними системами.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head"><h2>Как могу помочь</h2><div class="sub">Готов подключиться с быстрым результатом</div></div>
+        <div class="row" data-reveal>
+          <div class="card" style="flex:1 1 320px">
+            <h3 style="margin:0 0 8px">Анализ и SRS за 3–5 дней</h3>
+            <p class="muted">Соберу требования, оформлю SRS/диаграммы, создам понятный бэклог с приоритетами.</p>
+          </div>
+          <div class="card" style="flex:1 1 320px">
+            <h3 style="margin:0 0 8px">BPMN/UML под ключ</h3>
+            <p class="muted">От интервью до согласования схем и регламентов, без «серых зон».</p>
+          </div>
+          <div class="card" style="flex:1 1 320px">
+            <h3 style="margin:0 0 8px">Интеграции и данные</h3>
+            <p class="muted">API (REST/SOAP), схема данных, SQL‑отчёты, прототипы UI и проверка гипотез.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts">
+      <div class="container">
+        <div class="section-head"><h2>Контакты</h2><div class="sub">Быстрее всего — Telegram</div></div>
+        <div class="row" data-reveal>
+          <div class="card" style="flex:1 1 360px">
+            <h3 style="margin:0 0 10px">Связаться</h3>
+            <p class="muted">Напишите: <a href="https://t.me/LazarevMikl" target="_blank" rel="noopener">@LazarevMikl</a> · email: <a href="mailto:max@example.com">max@example.com</a></p>
+            <div class="row">
+              <button class="btn primary" id="copy">Скопировать Telegram</button>
+              <a class="btn ghost" href="#resume">Версия для печати (PDF)</a>
+            </div>
+          </div>
+          <div class="card" style="flex:1 1 360px">
+            <h3 style="margin:0 0 10px">Готовность</h3>
+            <p class="muted">Удалённо · полная занятость · старт быстро · тестовое ок.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row" style="justify-content:space-between; align-items:center">
+        <div>© <span id="y"></span> Максим Лазарев. Резюме+портфолио.</div>
+        <div class="muted">Сделано с вниманием к деталям · black&gold</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals (simplified) -->
+  <dialog id="modal-bpmn" class="modal">
+    <article class="card" style="max-width:900px">
+      <h3 style="margin-top:0">BPMN «Увольнение сотрудника»</h3>
+      <p class="muted">(Здесь можно вставить изображение/ссылку на Miro/Figma)</p>
+      <div class="row"><button class="btn" data-close>Закрыть</button></div>
+    </article>
+  </dialog>
+  <dialog id="modal-ai" class="modal">
+    <article class="card" style="max-width:900px"><h3 style="margin-top:0">AI‑аудит звонков</h3><p class="muted">(Скриншоты/PDF отчётов, описание метрик)</p><div class="row"><button class="btn" data-close>Закрыть</button></div></article>
+  </dialog>
+  <dialog id="modal-rag" class="modal">
+    <article class="card" style="max-width:900px"><h3 style="margin-top:0">RAG‑боты</h3><p class="muted">(Ссылки на демо, репозитории, диаграммы архитектуры)</p><div class="row"><button class="btn" data-close>Закрыть</button></div></article>
+  </dialog>
+
+<script>
+  // year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target)}})
+  },{threshold:.12});
+  document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+  // copy telegram
+  document.getElementById('copy')?.addEventListener('click', async ()=>{
+    try{ await navigator.clipboard.writeText('@LazarevMikl');
+      const b = document.getElementById('copy'); b.textContent='Скопировано!'; setTimeout(()=>b.textContent='Скопировать Telegram', 1600);
+    }catch(err){ alert('Скопируйте вручную: @LazarevMikl'); }
+  });
+
+  // simple modals
+  document.querySelectorAll('[data-open]').forEach(btn=>{
+    btn.addEventListener('click', ()=> document.getElementById(btn.dataset.open).showModal());
+  });
+  document.querySelectorAll('[data-close]').forEach(btn=>{
+    btn.addEventListener('click', ()=> btn.closest('dialog').close());
+  });
+
+  // smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const id=a.getAttribute('href'); if(id.length>1){ e.preventDefault(); document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'}); }
+    })
+  });
+</script>
+</body>
+</html>
