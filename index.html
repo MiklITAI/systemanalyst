@@ -14,12 +14,9 @@
     rel="stylesheet">
   <style>
     :root {
-      /* Более насыщенный золотой градиент */
+      /* Золотой градиент */
       --gold-gradient: linear-gradient(105deg, #FFD700, #FFC300, #ffd365, #E6AC00, #B8860B);
-
-      --bg: #fff2a9;
-      --panel: rgba(255, 250, 178, 0.85);
-      --panel-solid: #ffe6cd;
+      --gold-gradienttwo: linear-gradient(105deg, #ffed87, #ffe9a1, #fddf93, #ffdc72, #f1dca5);
       --txt: #1a1a1a;
       --muted: #444;
       --stroke: #d8c97a;
@@ -29,6 +26,7 @@
       --gap: 18px;
     }
 
+    /* Base */
     * {
       box-sizing: border-box
     }
@@ -42,20 +40,19 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color: var(--txt);
-      background: #fff8e1;
-      /* однотонный светлый фон вместо градиента */
+      background: #fffcee;
       line-height: 1.55;
       letter-spacing: .2px;
     }
 
     .container {
       width: min(1150px, 92vw);
-      margin: 0 auto
+      margin: 0 auto;
     }
 
     a {
       color: #B8860B;
-      text-decoration: none
+      text-decoration: none;
     }
 
     a:hover {
@@ -68,7 +65,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: saturate(1.2) blur(10px);
-      background: linear-gradient(90deg, #FFD700, #FFB700, #E6AC00);
+      background: linear-gradient(90deg, #ffdb8c, #ffd970, #ffedb5);
       border-bottom: 1px solid var(--stroke);
     }
 
@@ -77,13 +74,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 14px 0
+      padding: 14px 0;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px
+      gap: 12px;
     }
 
     .logo {
@@ -91,43 +88,25 @@
       height: 34px;
       border-radius: 10px;
       background: var(--gold-gradient);
-      box-shadow: 0 10px 20px rgba(217, 182, 111, .4)
+      box-shadow: 0 10px 20px rgba(217, 182, 111, .4);
     }
 
     .brand h1 {
       margin: 0;
       font: 700 18px/1 Playfair Display, serif;
-      letter-spacing: .3px
-    }
-
-    .nav a.btn {
-      padding: 10px 16px;
-      border: 1px solid #E6AC00;
-      border-radius: 12px
-    }
-
-    .nav .cta {
-      background: var(--gold-gradient);
-      color: #111;
-      font-weight: 600;
-      border: none;
-      box-shadow: 0 10px 24px rgba(217, 182, 111, .35)
-    }
-
-    .nav .cta:hover {
-      transform: translateY(-1px)
+      letter-spacing: .3px;
     }
 
     /* Hero */
     .hero {
       position: relative;
-      padding: 72px 0 40px
+      padding: 72px 0 40px;
     }
 
     .grid-hero {
       display: grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 40px
+      gap: 40px;
     }
 
     .kicker {
@@ -139,7 +118,7 @@
       border-radius: 999px;
       color: var(--muted);
       font-size: 12px;
-      letter-spacing: .3px
+      letter-spacing: .3px;
     }
 
     .spark {
@@ -147,62 +126,26 @@
       height: 8px;
       border-radius: 50%;
       background: var(--gold-gradient);
-      box-shadow: 0 0 12px #FFD700
+      box-shadow: 0 0 12px #FFD700;
     }
 
     .h1 {
       font: 700 clamp(28px, 4.8vw, 56px)/1.08 Playfair Display, serif;
-      margin: .5rem 0 1rem
+      margin: .5rem 0 1rem;
     }
 
     .lead {
       color: var(--muted);
-      font-size: clamp(15px, 1.8vw, 18px)
-    }
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 22px 0 28px
-    }
-
-    .badge {
-      padding: 8px 12px;
-      border: 1px solid var(--stroke);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 13px
+      font-size: clamp(15px, 1.8vw, 18px);
     }
 
     .hero-cta {
       display: flex;
       gap: 12px;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: 1px solid var(--stroke);
-      color: var(--txt)
-    }
-
-    .btn.primary {
-      background: var(--gold-gradient);
-      color: #111;
-      font-weight: 700;
-      border: none
-    }
-
-    .btn.ghost:hover {
-      border-color: #E6AC00;
-      color: #B8860B
-    }
-
+    /* Card in Hero (facts) */
     .card-hero {
       border: 1px solid var(--stroke);
       background: #fffef9;
@@ -210,13 +153,13 @@
       padding: 22px;
       display: grid;
       gap: 14px;
-      box-shadow: var(--shadow)
+      box-shadow: var(--shadow);
     }
 
     .stat {
       display: flex;
       align-items: flex-start;
-      gap: 12px
+      gap: 14px;
     }
 
     .stat .dot {
@@ -224,7 +167,8 @@
       height: 10px;
       border-radius: 50%;
       background: var(--gold-gradient);
-      box-shadow: 0 0 10px rgba(217, 182, 111, .6)
+      box-shadow: 0 0 10px rgba(217, 182, 111, .5);
+      margin-top: 6px;
     }
 
     .stat b {
@@ -236,7 +180,22 @@
       color: var(--muted)
     }
 
-    /* Section */
+    .stat-photo {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 8px 28px rgba(184, 134, 11, .25);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .stat-photo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(184, 134, 11, .3);
+    }
+
+    /* Sections */
     section {
       padding: 64px 0
     }
@@ -246,12 +205,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 26px
+      margin-bottom: 26px;
     }
 
     .section-head h2 {
       margin: 0;
-      font: 700 clamp(22px, 3vw, 30px)/1.1 Playfair Display, serif
+      font: 700 clamp(22px, 3vw, 30px)/1.1 Playfair Display, serif;
     }
 
     .sub {
@@ -259,39 +218,77 @@
     }
 
     /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--gap)
+    .skills-section {
+      background: linear-gradient(180deg, #fffbea, #fff8d9);
+      padding: 80px 0;
     }
 
-    .chip {
+    .skills-title {
+      font: 700 clamp(26px, 3vw, 34px)/1.2 Playfair Display, serif;
+      margin-bottom: 40px;
+      background: var(--gold-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 26px;
+    }
+
+    .skill-block {
       background: #fffef9;
       border: 1px solid var(--stroke);
-      border-radius: 999px;
-      padding: 10px 12px;
-      text-align: center
+      border-radius: 24px;
+      padding: 28px 32px;
+      box-shadow: 0 10px 32px rgba(184, 134, 11, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .stack {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: var(--gap)
+    .skill-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(184, 134, 11, 0.22);
     }
 
-    .tool {
-      border: 1px dashed var(--stroke);
-      border-radius: 14px;
-      padding: 14px;
-      text-align: center;
-      color: var(--muted)
+    .skill-block h3 {
+      font: 600 18px/1.3 Inter, sans-serif;
+      margin-bottom: 12px;
+      color: #a67c00;
+      border-bottom: 1px solid rgba(217, 182, 111, 0.25);
+      padding-bottom: 6px;
+    }
+
+    .skill-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skill-block li {
+      position: relative;
+      padding-left: 18px;
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .skill-block li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #d4b22d;
+      font-weight: bold;
     }
 
     /* Cases */
     .cases {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--gap)
+      gap: var(--gap);
     }
 
     .case {
@@ -299,56 +296,83 @@
       overflow: hidden;
       border-radius: 20px;
       border: 1px solid var(--stroke);
-      background: #fffef9
-    }
+      background: #fffef9;
 
-    .case .thumb {
-      aspect-ratio: 16/10;
-      background: var(--gold-gradient);
-      border-bottom: 1px solid var(--stroke)
-    }
-
-    .case .body {
-      padding: 16px 16px 18px
-    }
-
-    .case h3 {
-      margin: 6px 0 6px;
-      font: 600 18px/1.2 Inter
-    }
-
-    .meta {
+      /* добавлено для равномерной высоты и прижатия кнопок */
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 12px
+      flex-direction: column;
     }
 
+    /* === FIX превью в кейсах === */
+
+    /* 1) Шапка карточки с превью */
+    .case .thumb {
+      aspect-ratio: 16 / 10;
+      /* одинаковая высота у всех превью от соотношения сторон */
+      background: var(--gold-gradient);
+      border-bottom: 1px solid var(--stroke);
+      flex-shrink: 0;
+
+      position: relative;
+      /* для абсолютного позиционирования img */
+      overflow: hidden;
+      /* чтобы картинка не вылезала и не ломала высоты */
+      border-top-left-radius: 20px;
+      /* чтобы верхние углы совпадали с карточкой */
+      border-top-right-radius: 20px;
+    }
+
+    /* 2) Картинка внутри превью */
+    .case .thumb img {
+      position: absolute;
+      inset: 6px;
+      /* небольшой отступ = «золотая рамка» вокруг фото */
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      object-fit: cover;
+      /* заполняем блок без искажений */
+      border-radius: 12px;
+      /* скругление у самой картинки (визуально аккуратнее) */
+      display: block;
+      transition: transform .3s ease;
+    }
+
+    .case .thumb img:hover {
+      transform: scale(1.03);
+    }
+
+    /* 3) Тело карточки — убираем лишнее распределение,
+      т.к. кнопки и так прижимаются через margin-top:auto */
+    .case .body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      /* было space-between — это мешало равномерности */
+      flex-grow: 1;
+      padding: 16px;
+    }
+
+    /* 4) Кнопки остаются прижаты к низу как раньше */
     .case .actions {
       display: flex;
       gap: 10px;
-      margin-top: 12px
+      margin-top: auto;
     }
 
-    .case .actions .btn {
-      padding: 9px 12px;
-      font-size: 14px
-    }
 
     .tag {
       font-size: 12px;
       border: 1px solid var(--stroke);
       padding: 6px 10px;
       border-radius: 999px;
-      color: var(--muted)
+      color: var(--muted);
     }
 
     /* Timeline */
     .timeline {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px
+      gap: 14px;
     }
 
     .item {
@@ -358,7 +382,7 @@
       padding: 16px;
       border: 1px solid var(--stroke);
       border-radius: 16px;
-      background: #fffef9
+      background: #fffef9;
     }
 
     .item .when {
@@ -377,7 +401,7 @@
     .bullets {
       display: grid;
       gap: 6px;
-      margin-top: 10px
+      margin-top: 10px;
     }
 
     .bullets li {
@@ -389,33 +413,98 @@
       padding: 40px 0;
       border-top: 1px solid var(--stroke);
       color: var(--muted);
-      background: linear-gradient(90deg, #FFD700, #FFB700, #E6AC00)
+      background: linear-gradient(90deg, #FFD700, #ffdf8d, #E6AC00);
     }
 
     /* Utilities */
     .row {
       display: flex;
       gap: var(--gap);
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
       border: 1px solid var(--stroke);
       border-radius: var(--radius);
-      padding: 16px;
-      background: #fffef9
+      padding: 24px;
+      background: #fffef9;
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.15);
     }
 
-    .muted {
-      color: var(--muted)
+    /* Buttons — единый стиль */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      border: 1px solid var(--stroke);
+      color: var(--txt);
+      background: #fffef9;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
     }
 
-    .center {
-      text-align: center
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(184, 134, 11, 0.35);
+      filter: brightness(1.08);
     }
 
-    .hide {
-      display: none
+    .btn.primary {
+      background: var(--gold-gradient);
+      color: #111;
+      border: none;
+      box-shadow: 0 8px 22px rgba(184, 134, 11, 0.25);
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(184, 134, 11, 0.35);
+      filter: brightness(1.08);
+    }
+
+    .btn.secondary {
+      background: var(--gold-gradienttwo);
+      color: var(--muted);
+      border: 1px solid var(--stroke);
+      transition: all 0.25s ease;
+    }
+
+    .btn.secondary:hover {
+      color: #111;
+      border-color: #E6AC00;
+      background: linear-gradient(105deg, #c99d4c, #f5b745);
+      box-shadow: 0 6px 18px rgba(184, 134, 11, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .nav .btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    .nav .btn.primary {
+      box-shadow: 0 6px 16px rgba(184, 134, 11, 0.25);
+    }
+
+    .nav .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.35);
+    }
+
+    .modal .btn {
+      margin-top: 10px
     }
 
     /* Responsive */
@@ -424,16 +513,8 @@
         grid-template-columns: 1fr
       }
 
-      .skills {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
       .cases {
         grid-template-columns: 1fr 1fr
-      }
-
-      .stack {
-        grid-template-columns: repeat(3, 1fr)
       }
 
       .item {
@@ -451,22 +532,21 @@
     [data-reveal] {
       opacity: 0;
       transform: translateY(14px);
-      transition: opacity .6s ease, transform .6s ease
+      transition: opacity .6s ease, transform .6s ease;
     }
 
     [data-reveal].in {
       opacity: 1;
-      transform: none
+      transform: none;
     }
 
-    /* Print (save as PDF) */
+    /* Print */
     @media print {
 
       header,
-      .hero-cta .btn.ghost,
-      .case .actions,
-      .nav .cta {
-        display: none !important
+      .hero-cta .btn.secondary,
+      .case .actions {
+        display: none !important;
       }
 
       .case .thumb {
@@ -489,6 +569,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -496,13 +577,13 @@
     <div class="container nav">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <h1>Максим Лазарев · Системный аналитик</h1>
+        <h1>Михаил Лазарев · Системный аналитик</h1>
       </div>
       <nav class="row">
-        <a href="#cases" class="btn">Кейсы</a>
-        <a href="#skills" class="btn">Навыки</a>
-        <a href="#experience" class="btn">Опыт</a>
-        <a href="#contacts" class="btn cta">Связаться</a>
+        <a href="#skills" class="btn secondary">Навыки</a>
+        <a href="#cases" class="btn secondary">Кейсы</a>
+        <a href="#experience" class="btn secondary">Опыт</a>
+        <a href="#contacts" class="btn primary">Связаться</a>
       </nav>
     </div>
   </header>
@@ -512,46 +593,136 @@
     <section class="hero">
       <div class="container grid-hero">
         <div>
-          <div class="kicker"><span class="spark"></span> Удалённо · Middle/Senior System Analyst</div>
+          <div class="kicker"><span class="spark"></span> Удалённо · Системный аналитик</div>
           <h2 class="h1" data-reveal>Делаю бизнес-процессы прозрачными, требования — однозначными, а разработку —
             предсказуемой</h2>
-          <p class="lead" data-reveal>Сильные стороны: BPMN/UML, сбор и формализация требований, интеграции (REST/SOAP),
-            документация в Confluence/Notion, SQL, прототипирование, Bitrix24 (D7), AI‑боты и RAG‑системы для
-            автоматизации.</p>
-          <div class="badges" data-reveal>
-            <div class="badge">BPMN · UML · Use Cases · User Stories</div>
-            <div class="badge">API: REST/SOAP · JSON/XML</div>
-            <div class="badge">SQL · Postgres/MySQL</div>
-            <div class="badge">Jira · Confluence · Notion</div>
-            <div class="badge">Bitrix24 (коробка, D7)</div>
-            <div class="badge">RAG · AI‑аудит звонков</div>
-          </div>
+          <p class="lead" style="font-size: 35px; line-height: 1.6;" data-reveal>
+            Сильные стороны:
+            <li style="font-size: 20px">BPMN/UML</li>
+            <li style="font-size: 20px">Сбор и формализация требований</li>
+            <li style="font-size: 20px">Интеграции (REST/SOAP)</li>
+            <li style="font-size: 20px">документация в Confluence/Notion</li>
+            <li style="font-size: 20px">SQL, прототипирование, Bitrix24 (D7)</li>
+            <li style="font-size: 20px">AI‑боты, N8N и RAG‑системы для автоматизации</li>
+            <li style="font-size: 20px">Готов очень быстро освоить новые направления.
+            <li style="font-size: 20px">Постоянно повышаю квалификацию</li>
+          </p>
+
           <div class="hero-cta" data-reveal>
             <a class="btn primary" href="#contacts">Обсудить задачу</a>
-            <a class="btn ghost" href="#cases">Смотреть кейсы</a>
+            <a class="btn secondary" href="#cases">Смотреть кейсы</a>
             <!-- <a class="btn ghost" href="#resume">Скачать PDF</a> -->
           </div>
         </div>
         <aside class="card-hero" aria-label="Краткие факты" data-reveal>
-          <div class="stat"><span class="dot"></span>
-            <div><b>15+ сложных процессов</b><small>моделировал и запускал (HR, Support, Payments)</small></div>
+          <div class="stat">
+            <span class="dot"></span>
+            <div>
+              <b>15+ сложных процессов</b>
+              <small>моделировал и запускал (HR, Support, Payments)</small>
+              <img src="process.jpg" alt="Пример бизнес-процесса" class="stat-photo">
+            </div>
           </div>
-          <div class="stat"><span class="dot"></span>
-            <div><b>AI‑инициативы</b><small>внедрение RAG‑ботов и аудита звонков; отчёты PDF/Telegram</small></div>
+
+          <div class="stat">
+            <span class="dot"></span>
+            <div>
+              <b>AI-инициативы</b>
+              <small>внедрение RAG-ботов и аудита звонков; отчёты PDF/Telegram</small>
+              <img src="ai.jpg" alt="AI проект" class="stat-photo">
+            </div>
           </div>
-          <div class="stat"><span class="dot"></span>
-            <div><b>Bitrix24 D7</b><small>статусные БП, Highload‑блоки, ORM, UI‑фильтры</small></div>
+
+          <div class="stat">
+            <span class="dot"></span>
+            <div>
+              <b>Bitrix24 D7</b>
+              <small>статусные БП, Highload-блоки, ORM, UI-фильтры</small>
+              <img src="bitrix.jpg" alt="Bitrix24 D7" class="stat-photo">
+            </div>
           </div>
-          <div class="stat"><span class="dot"></span>
-            <div><b>Фокус на результате</b><small>сроки, метрики, прозрачные артефакты (BPMN/UML/SRS)</small></div>
+
+          <div class="stat">
+            <span class="dot"></span>
+            <div>
+              <b>Фокус на результате</b>
+              <small>сроки, метрики, прозрачные артефакты (BPMN/UML/SRS)</small>
+              <img src="result.jpg" alt="Результаты работы" class="stat-photo">
+            </div>
           </div>
         </aside>
+
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" class="skills-section" data-reveal>
       <div class="container">
+        <h2 class="skills-title">Навыки</h2>
+
+        <div class="skills-grid">
+          <div class="skill-block">
+            <h3>Методы анализа и проектирования</h3>
+            <ul>
+              <li>BPMN · UML · Use Cases · ERD</li>
+              <li>Сбор и формализация требований</li>
+              <li>Интервью и воркшопы</li>
+              <li>Спецификации · Прототипирование (Miro, Figma)</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>Интеграции и API</h3>
+            <ul>
+              <li>REST · SOAP · JSON · XML</li>
+              <li>Swagger · Postman · Telegram API · Webhooks</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>Данные и базы</h3>
+            <ul>
+              <li>SQL · PostgreSQL · MySQL</li>
+              <li>Проектирование структуры данных</li>
+              <li>Отчёты и аналитика</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>Инструменты и системы</h3>
+            <ul>
+              <li>Bitrix24 (коробка) · D7 · ORM · UI.Filter</li>
+              <li>Jira · Confluence · Notion</li>
+              <li>Miro · Figma · Git</li>
+              <li>N8N (no-code автоматизация)</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>AI и автоматизация</h3>
+            <ul>
+              <li>AI-боты · RAG-системы · AI-аудит звонков</li>
+              <li>Python-скрипты · Fine-tuning моделей</li>
+              <li>vLLM · ClearML · Label Studio</li>
+              <li>Работа с серверами VDS/VPS · SSH · Docker</li>
+              <li>Вайбкодинг · Слежение за трендами AI</li>
+            </ul>
+          </div>
+
+          <div class="skill-block">
+            <h3>Общие профессиональные навыки</h3>
+            <ul>
+              <li>Аналитическое и системное мышление</li>
+              <li>Проектирование данных и логики</li>
+              <li>Документация (Confluence · Notion)</li>
+              <li>Организация процессов и приоритизация задач</li>
+              <li>Взаимодействие с командой и заказчиком</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="container">
         <div class="section-head">
           <h2>Навыки и фокус</h2>
           <div class="sub">Что именно я делаю лучше всего</div>
@@ -585,7 +756,7 @@
           <div class="tool">Telegram API</div>
           <div class="tool">Notion</div>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <!-- CASES / PORTFOLIO -->
@@ -596,95 +767,176 @@
           <div class="sub">Клик по карточке — детали и артефакты</div>
         </div>
         <div class="cases" data-reveal>
+
           <!-- Case 1 -->
           <article class="case">
-            <div class="thumb" role="img" aria-label="BPMN процесс увольнения"></div>
+            <div class="thumb" aria-label="AI аудит звонков">
+              <img src="Case1.png" alt="AI аудит звонков">
+            </div>
             <div class="body">
-              <div class="meta"><span class="tag">BPMN/UML</span><span class="tag">Bitrix24 D7</span><span
-                  class="tag">HR</span></div>
-              <h3>Статусный процесс «Увольнение сотрудника» (Bitrix24, коробка)</h3>
-              <p class="muted">Собрал требования, сделал BPMN, статусы, роли и уведомления. Реализованы проверки,
-                документы, интеграции.</p>
+              <div class="meta">
+                <span class="tag">AI/RAG</span><span class="tag">Телефония</span><span class="tag">Отчёты</span>
+              </div>
+              <h3>AI-аудит звонков: чек-листы, метрики, PDF/Telegram отчёты</h3>
+              <p class="muted">Автоматический анализ звонков по чек-листам с отчётами в PDF и Telegram. Метрики по
+                операторам
+                и динамика за день/месяц.</p>
               <div class="actions">
-                <button class="btn" data-open="modal-bpmn">Показать схему</button>
-                <a class="btn" href="#" target="_blank" rel="noopener">SRS (PDF)</a>
+                <button class="btn secondary" data-open="modal-ai">Подробнее</button>
               </div>
             </div>
           </article>
+          <dialog id="modal-ai" class="modal">
+            <article class="card" style="max-width:900px">
+              <h3 style="margin-top:0">AI-аудит звонков</h3>
+              <p class="muted">Система анализирует звонки операторов по заранее заданным чек-листам.
+                Реализованы JSON-схемы, метрики, отчётность по дням и месяцам, интеграции с Telegram, интерфейс и
+                диаграммы
+                для визуализации.
+                Итог — прозрачная оценка качества общения и автоматические рекомендации.</p>
+              <div class="row"><button class="btn" data-close>Закрыть</button></div>
+            </article>
+          </dialog>
+
           <!-- Case 2 -->
           <article class="case">
-            <div class="thumb" aria-label="AI аудит звонков"></div>
+            <div class="thumb" aria-label="RAG чат-боты">
+              <img src="Case2.png" alt="AI аудит звонков">
+            </div>
             <div class="body">
-              <div class="meta"><span class="tag">AI/RAG</span><span class="tag">Телефония</span><span
-                  class="tag">Отчёты</span></div>
-              <h3>AI-аудит звонков: чек-листы, метрики, PDF/Telegram отчёты</h3>
-              <p class="muted">Спроектировал JSON-схемы, отчётность (день/месяц), интеграции с Telegram, базу для метрик
-                операторов.</p>
+              <div class="meta">
+                <span class="tag">RAG</span><span class="tag">Интеграции</span><span class="tag">Docs</span>
+              </div>
+              <h3>Умные чат-боты: FAQ/Вики, интеграции и база знаний</h3>
+              <p class="muted">RAG-боты с векторной базой знаний и интеграциями в бизнес-системы. Отвечают по
+                корпоративным материалам точно и безопасно.</p>
               <div class="actions">
-                <button class="btn" data-open="modal-ai">Скриншоты</button>
-                <a class="btn" href="#" target="_blank">Демо-бот</a>
+                <button class="btn secondary" data-open="modal-rag">Подробнее</button>
               </div>
             </div>
           </article>
+          <dialog id="modal-rag" class="modal">
+            <article class="card" style="max-width:900px">
+              <h3 style="margin-top:0">RAG-чат-боты и базы знаний</h3>
+              <p class="muted">Спроектированы пайплайны для RAG-ботов: векторная база знаний, предобработка контента,
+                генерация ответов через GPT.
+                Настроены KPI по точности ответов и срокам внедрения. Поддержка API-интеграций с CRM и внутренними
+                документами.</p>
+              <div class="row"><button class="btn" data-close>Закрыть</button></div>
+            </article>
+          </dialog>
+
           <!-- Case 3 -->
           <article class="case">
-            <div class="thumb" aria-label="RAG-боты"></div>
+            <div class="thumb" aria-label="Новостной AI агент">
+              <img src="Case3.png" alt="AI аудит звонков">
+            </div>
             <div class="body">
-              <div class="meta"><span class="tag">RAG</span><span class="tag">Интеграции</span><span
-                  class="tag">Docs</span></div>
-              <h3>RAG-чатботы для компаний: FAQ/Вики, интеграции и база знаний</h3>
-              <p class="muted">Проектирование векторной БД, пайплайнов, прототип диалогов; KPI по точности и срокам
-                внедрения.</p>
+              <div class="meta">
+                <span class="tag">AI</span><span class="tag">Telegram</span><span class="tag">Автоматизация</span>
+              </div>
+              <h3>Новостной ИИ-агент PulseAI</h3>
+              <p class="muted">ИИ-агент собирает новости из десятков источников, анализирует и публикует в Telegram в
+                виде кратких сводок.</p>
               <div class="actions">
-                <button class="btn" data-open="modal-rag">Материалы</button>
-                <a class="btn" href="#" target="_blank">GitHub/Docs</a>
+                <button class="btn secondary" data-open="modal-pulse">Подробнее</button>
               </div>
             </div>
           </article>
+          <dialog id="modal-pulse" class="modal">
+            <article class="card" style="max-width:900px">
+              <h3 style="margin-top:0">Новостной ИИ-агент PulseAI</h3>
+              <p class="muted">Система собирает данные из каналов Telegram, RSS и соцсетей, применяет нейросеть для
+                извлечения ключевых фактов, сокращения и перевода.
+                Итоговые новости автоматически публикуются в Telegram-канал с тегами и форматированием. Используется
+                связка Telethon + DeepSeek.</p>
+              <div class="row"><button class="btn" data-close>Закрыть</button></div>
+            </article>
+          </dialog>
+
           <!-- Case 4 -->
           <article class="case">
-            <div class="thumb" aria-label="HeadHunter API"></div>
+            <div class="thumb" aria-label="AI постановщик задач">
+              <img src="Case4.png" alt="AI аудит звонков">
+            </div>
             <div class="body">
-              <div class="meta"><span class="tag">API</span><span class="tag">Интеграции</span><span
-                  class="tag">Postman</span></div>
-              <h3>Интеграция с HeadHunter API: вакансии и тестовые отклики</h3>
-              <p class="muted">Документировал сценарий, собрал Postman-коллекцию, сделал тестовые запросы и прототип
-                бота для откликов.</p>
+              <div class="meta">
+                <span class="tag">AI</span><span class="tag">JSON</span><span class="tag">Bitrix24</span>
+              </div>
+              <h3>ИИ-помощник постановки задач</h3>
+              <p class="muted">Руководитель просто говорит задачу — ИИ формирует JSON и создаёт задачу в CRM с
+                приоритетом и сроками.</p>
               <div class="actions">
-                <button class="btn" data-open="modal-hh">Подробнее</button>
-                <a class="btn" href="#" target="_blank">Postman коллекция</a>
+                <button class="btn secondary" data-open="modal-taskai">Подробнее</button>
               </div>
             </div>
           </article>
+          <dialog id="modal-taskai" class="modal">
+            <article class="card" style="max-width:900px">
+              <h3 style="margin-top:0">ИИ-помощник постановки задач</h3>
+              <p class="muted">Голос или текстовое сообщение анализируется моделью GPT, извлекаются цель, приоритет и
+                срок.
+                На выходе формируется JSON-структура и автоматически создаётся задача в Bitrix24 или AMOcrm.
+                Экономит время руководителей и снижает количество неточных задач.</p>
+              <div class="row"><button class="btn" data-close>Закрыть</button></div>
+            </article>
+          </dialog>
+
           <!-- Case 5 -->
           <article class="case">
-            <div class="thumb" aria-label="SQL отчёты"></div>
+            <div class="thumb" aria-label="CRM автоматизация">
+              <img src="Case5.png" alt="AI аудит звонков">
+            </div>
             <div class="body">
-              <div class="meta"><span class="tag">SQL</span><span class="tag">Отчёты</span><span
-                  class="tag">Bitrix24</span></div>
-              <h3>SQL-аналитика выплат и отчётность по сотрудникам</h3>
-              <p class="muted">Запросы к смарт-процессам, фильтры по статусу/датам, визуализации в Excel и Google
-                Sheets. Автоматическая рассылка PDF отчётов.</p>
+              <div class="meta">
+                <span class="tag">BPMN/UML</span><span class="tag">Bitrix24 D7</span><span class="tag">HR</span>
+              </div>
+              <h3>Автоматизации в CRM: статусные процессы и проверки</h3>
+              <p class="muted">Реализованы сложные бизнес-процессы в Bitrix24: увольнение, найм, согласования и
+                уведомления.</p>
               <div class="actions">
-                <button class="btn" data-open="modal-sql">Примеры</button>
-                <a class="btn" href="#" target="_blank">Отчёт (PDF)</a>
+                <button class="btn secondary" data-open="modal-bpmn">Подробнее</button>
               </div>
             </div>
           </article>
+          <dialog id="modal-bpmn" class="modal">
+            <article class="card" style="max-width:900px">
+              <h3 style="margin-top:0">Автоматизации в CRM системах</h3>
+              <p class="muted">Собрал требования, сделал BPMN-диаграммы, реализовал статусы, роли, уведомления, проверки
+                и документы.
+                Интеграция с Highload-блоками и D7 ORM. Сократил количество ошибок и ускорил процесс согласования в 2–3
+                раза.</p>
+              <div class="row"><button class="btn" data-close>Закрыть</button></div>
+            </article>
+          </dialog>
+
           <!-- Case 6 -->
           <article class="case">
-            <div class="thumb" aria-label="BMW бот"></div>
+            <div class="thumb" aria-label="BMW бот">
+              <img src="Case6.png" alt="AI аудит звонков">
+            </div>
             <div class="body">
-              <div class="meta"><span class="tag">Telegram Bot</span><span class="tag">AI</span><span
-                  class="tag">Feedback</span></div>
+              <div class="meta">
+                <span class="tag">Telegram Bot</span><span class="tag">AI</span><span class="tag">Feedback</span>
+              </div>
               <h3>Telegram-бот для автосервиса BMW</h3>
-              <p class="muted">Собрал требования, описал user stories, спроектировал бота для обратной связи и бонусов
-                клиентам.</p>
+              <p class="muted">Бот для сбора отзывов и выдачи бонусов клиентам. Позволяет улучшить качество сервиса и
+                лояльность.</p>
               <div class="actions">
-                <a class="btn" href="#" target="_blank">Демо</a>
+                <button class="btn secondary" data-open="modal-bmw">Подробнее</button>
               </div>
             </div>
           </article>
+          <dialog id="modal-bmw" class="modal">
+            <article class="card" style="max-width:900px">
+              <h3 style="margin-top:0">Telegram-бот для автосервиса BMW</h3>
+              <p class="muted">Проект включал сбор требований, написание user stories и проектирование диалогов.
+                Реализован бот для обратной связи, бонусов и рассылок.
+                Позволяет автоматизировать сбор отзывов и улучшить клиентский опыт.</p>
+              <div class="row"><button class="btn" data-close>Закрыть</button></div>
+            </article>
+          </dialog>
+
         </div>
         <p class="muted" style="margin-top:14px" data-reveal>Полный список кейсов доступен по запросу. Могу быстро
           подготовить демо под вашу предметную область.</p>
@@ -698,9 +950,11 @@
           <h2>Опыт</h2>
           <div class="sub">Коротко и по делу</div>
         </div>
+
         <div class="timeline" data-reveal>
+
           <div class="item">
-            <div class="when">2024–2025 · контракт/проектно</div>
+            <div class="when">2024–2025 · по найму</div>
             <div>
               <h4>Системный аналитик / Solution Designer</h4>
               <p>Bitrix24 (коробка), AI-инициативы (RAG-боты, аудит звонков), интеграции, отчёты.</p>
@@ -710,17 +964,52 @@
                 <li>Контроль реализации: backlog, критерии готовности, приёмка</li>
                 <li>RAG-боты: архитектура, векторные БД, интеграции GPT</li>
                 <li>AI-аудит звонков: транскрибация, чек-листы, метрики, отчёты</li>
-                <li>API интеграции: Telegram, HeadHunter, Mango Office, Bitrix24 (D7)</li>
+                <li>API-интеграции: Telegram, HeadHunter, Mango Office, Bitrix24 (D7)</li>
               </ul>
             </div>
           </div>
+
           <div class="item">
-            <div class="when">Ранее</div>
+            <div class="when">2023–2024 · фриланс / частные проекты</div>
             <div>
-              <h4>Бизнес-/системный анализ в прикладных проектах</h4>
-              <p>Разные домены: сервис/услуги, внутренние порталы, телефония, интеграции с внешними системами.</p>
+              <h4>Бизнес- и системный анализ MVP-продуктов</h4>
+              <p>Анализ, проектирование и тестирование интеллектуальных решений на базе нейросетей и автоматизаций.</p>
+              <ul class="bullets">
+                <li>Исследование MVP-гипотез и проектирование пользовательских сценариев</li>
+                <li>AI-боты и ассистенты: маркетплейс, BMW-сервис, новостной агент PulseAI</li>
+                <li>Документация: схемы данных, диаграммы, ТЗ для разработчиков</li>
+                <li>Построение пайплайнов: сбор данных, векторизация, обработка, отчёты</li>
+                <li>Координация фриланс-разработчиков, тестирование и контроль качества</li>
+              </ul>
             </div>
           </div>
+
+          <div class="item">
+            <div class="when">2023 · фриланс</div>
+            <div>
+              <h4>Разработка сайтов и цифровых решений</h4>
+              <p>Разработка лендингов, настройка автоматизаций, сбор требований и реализация небольших веб-проектов.</p>
+              <ul class="bullets">
+                <li>Анализ задач заказчиков, формализация требований</li>
+                <li>Создание сайтов и интеграций (HTML, CSS, JS, CMS, no-code)</li>
+                <li>UX-логика, структура контента, SEO-оптимизация</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="when">До 2023</div>
+            <div>
+              <h4>Технические и управленческие роли</h4>
+              <p>Опыт работы в фармацевтическом производстве, логистике, управлении процессами и анализе данных.</p>
+              <ul class="bullets">
+                <li>Контроль технологических процессов (GMP-среда)</li>
+                <li>Аналитический подход, внимание к деталям, документирование</li>
+                <li>Организация и контроль работы команд</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -729,21 +1018,21 @@
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <h2>Как могу помочь</h2>
-          <div class="sub">Готов подключиться с быстрым результатом</div>
+          <h2>По условиям</h2>
+          <div class="sub">Готов сразу подключиться с быстрым результатом</div>
         </div>
         <div class="row" data-reveal>
           <div class="card" style="flex:1 1 320px">
-            <h3 style="margin:0 0 8px">Анализ и SRS за 3–5 дней</h3>
-            <p class="muted">Соберу требования, оформлю SRS/диаграммы, создам понятный бэклог с приоритетами.</p>
+            <h3 style="margin:0 0 8px">Только удалённо</h3>
+            <p class="muted">Но готов рассмотреть гибридный график на время спытательного срока</p>
           </div>
           <div class="card" style="flex:1 1 320px">
-            <h3 style="margin:0 0 8px">BPMN/UML под ключ</h3>
-            <p class="muted">От интервью до согласования схем и регламентов, без «серых зон».</p>
+            <h3 style="margin:0 0 8px">Ищу полную занятость</h3>
+            <p class="muted">Но также рассматриваю проектную работу</p>
           </div>
           <div class="card" style="flex:1 1 320px">
-            <h3 style="margin:0 0 8px">Интеграции и данные</h3>
-            <p class="muted">API (REST/SOAP), схема данных, SQL‑отчёты, прототипы UI и проверка гипотез.</p>
+            <h3 style="margin:0 0 8px">Тестовое</h3>
+            <p class="muted">Готов сделать тестовое задание или показать готовые проекты</p>
           </div>
         </div>
       </div>
@@ -759,18 +1048,26 @@
         <div class="row" data-reveal>
           <div class="card" style="flex:1 1 360px">
             <h3 style="margin:0 0 10px">Связаться</h3>
-            <p class="muted">Напишите: <a href="https://t.me/LazarevMikl" target="_blank"
-                rel="noopener">@LazarevMikl</a> · email: <a href="mailto:xbotstudio@mail.ru">xbotstudio@mail.ru</a></p>
-            <div class="row">
+            <p class="muted">
+              Напишите:
+              <a href="https://t.me/LazarevMikl" target="_blank" rel="noopener">@LazarevMikl</a> ·
+              email: <a href="mailto:xbotstudio@mail.ru">xbotstudio@mail.ru</a>
+            </p>
+            <div class="row" style="justify-content:center; flex-wrap:wrap; gap:12px;">
               <button class="btn primary" id="copy">Скопировать Telegram</button>
-              <!-- <a class="btn ghost" href="#resume">Версия для печати (PDF)</a> -->
+              <a class="btn primary" href="https://hh.ru/resume/a60bbf60ff0f4150340039ed1f6d6566444446" target="_blank"
+                rel="noopener">
+                Смотреть резюме
+              </a>
             </div>
           </div>
-          <div class="card" style="flex:1 1 360px">
+        </div>
+
+        <!-- <div class="card" style="flex:1 1 360px">
             <h3 style="margin:0 0 10px">Готовность</h3>
             <p class="muted">Удалённо · полная занятость · старт быстро · тестовое ок.</p>
-          </div>
-        </div>
+          </div> -->
+      </div>
       </div>
     </section>
   </main>
@@ -855,6 +1152,23 @@
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href'); if (id.length > 1) { e.preventDefault(); document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       })
+    });
+
+    // закрытие модалки по клику вне окна
+    document.querySelectorAll('dialog').forEach(dialog => {
+      dialog.addEventListener('click', (e) => {
+        const dialogRect = dialog.querySelector('article')?.getBoundingClientRect();
+        if (!dialogRect) return;
+        // проверяем, был ли клик вне карточки
+        if (
+          e.clientX < dialogRect.left ||
+          e.clientX > dialogRect.right ||
+          e.clientY < dialogRect.top ||
+          e.clientY > dialogRect.bottom
+        ) {
+          dialog.close();
+        }
+      });
     });
   </script>
 </body>
