@@ -1,1176 +1,510 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Михаил Лазарев — Системный аналитик | Резюме + Портфолио</title>
-  <meta name="description"
-    content="Системный аналитик: требования, BPMN/UML, интеграции, API, SQL. Резюме и портфолио в одном премиальном лендинге." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      /* Золотой градиент */
-      --gold-gradient: linear-gradient(105deg, #FFD700, #FFC300, #ffd365, #E6AC00, #B8860B);
-      --gold-gradienttwo: linear-gradient(105deg, #ffed87, #ffe9a1, #fddf93, #ffdc72, #f1dca5);
-      --txt: #1a1a1a;
-      --muted: #444;
-      --stroke: #d8c97a;
-      --shadow: 0 20px 40px rgba(184, 134, 11, .25);
-      --radius: 18px;
-      --radius-xl: 26px;
-      --gap: 18px;
-    }
-
-    /* Base */
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      height: 100%
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      color: var(--txt);
-      background: #fffcee;
-      line-height: 1.55;
-      letter-spacing: .2px;
-    }
-
-    .container {
-      width: min(1150px, 92vw);
-      margin: 0 auto;
-    }
-
-    a {
-      color: #B8860B;
-      text-decoration: none;
-    }
-
-    a:hover {
-      filter: saturate(1.2)
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: saturate(1.2) blur(10px);
-      background: linear-gradient(90deg, #ffdb8c, #ffd970, #ffedb5);
-      border-bottom: 1px solid var(--stroke);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: var(--gold-gradient);
-      box-shadow: 0 10px 20px rgba(217, 182, 111, .4);
-    }
-
-    .brand h1 {
-      margin: 0;
-      font: 700 18px/1 Playfair Display, serif;
-      letter-spacing: .3px;
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      padding: 72px 0 40px;
-    }
-
-    .grid-hero {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 40px;
-    }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 10px;
-      border: 1px solid var(--stroke);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: .3px;
-    }
-
-    .spark {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold-gradient);
-      box-shadow: 0 0 12px #FFD700;
-    }
-
-    .h1 {
-      font: 700 clamp(28px, 4.8vw, 56px)/1.08 Playfair Display, serif;
-      margin: .5rem 0 1rem;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: clamp(15px, 1.8vw, 18px);
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* Card in Hero (facts) */
-    .card-hero {
-      border: 1px solid var(--stroke);
-      background: #fffef9;
-      border-radius: var(--radius-xl);
-      padding: 22px;
-      display: grid;
-      gap: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .stat .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--gold-gradient);
-      box-shadow: 0 0 10px rgba(217, 182, 111, .5);
-      margin-top: 6px;
-    }
-
-    .stat b {
-      font-size: 15px
-    }
-
-    .stat small {
-      display: block;
-      color: var(--muted)
-    }
-
-    .stat-photo {
-      display: block;
-      width: 100%;
-      margin-top: 12px;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 8px 28px rgba(184, 134, 11, .25);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .stat-photo:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px rgba(184, 134, 11, .3);
-    }
-
-    /* Sections */
-    section {
-      padding: 64px 0
-    }
-
-    .section-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 26px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font: 700 clamp(22px, 3vw, 30px)/1.1 Playfair Display, serif;
-    }
-
-    .sub {
-      color: var(--muted)
-    }
-
-    /* Skills */
-    .skills-section {
-      background: linear-gradient(180deg, #fffbea, #fff8d9);
-      padding: 80px 0;
-    }
-
-    .skills-title {
-      font: 700 clamp(26px, 3vw, 34px)/1.2 Playfair Display, serif;
-      margin-bottom: 40px;
-      background: var(--gold-gradient);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 26px;
-    }
-
-    .skill-block {
-      background: #fffef9;
-      border: 1px solid var(--stroke);
-      border-radius: 24px;
-      padding: 28px 32px;
-      box-shadow: 0 10px 32px rgba(184, 134, 11, 0.12);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .skill-block:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(184, 134, 11, 0.22);
-    }
-
-    .skill-block h3 {
-      font: 600 18px/1.3 Inter, sans-serif;
-      margin-bottom: 12px;
-      color: #a67c00;
-      border-bottom: 1px solid rgba(217, 182, 111, 0.25);
-      padding-bottom: 6px;
-    }
-
-    .skill-block ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .skill-block li {
-      position: relative;
-      padding-left: 18px;
-      margin: 6px 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .skill-block li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #d4b22d;
-      font-weight: bold;
-    }
-
-    /* Cases */
-    .cases {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--gap);
-    }
-
-    .case {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid var(--stroke);
-      background: #fffef9;
-
-      /* добавлено для равномерной высоты и прижатия кнопок */
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* === FIX превью в кейсах === */
-
-    /* 1) Шапка карточки с превью */
-    .case .thumb {
-      aspect-ratio: 16 / 10;
-      /* одинаковая высота у всех превью от соотношения сторон */
-      background: var(--gold-gradient);
-      border-bottom: 1px solid var(--stroke);
-      flex-shrink: 0;
-
-      position: relative;
-      /* для абсолютного позиционирования img */
-      overflow: hidden;
-      /* чтобы картинка не вылезала и не ломала высоты */
-      border-top-left-radius: 20px;
-      /* чтобы верхние углы совпадали с карточкой */
-      border-top-right-radius: 20px;
-    }
-
-    /* 2) Картинка внутри превью */
-    .case .thumb img {
-      position: absolute;
-      inset: 6px;
-      /* небольшой отступ = «золотая рамка» вокруг фото */
-      width: calc(100% - 12px);
-      height: calc(100% - 12px);
-      object-fit: cover;
-      /* заполняем блок без искажений */
-      border-radius: 12px;
-      /* скругление у самой картинки (визуально аккуратнее) */
-      display: block;
-      transition: transform .3s ease;
-    }
-
-    .case .thumb img:hover {
-      transform: scale(1.03);
-    }
-
-    /* 3) Тело карточки — убираем лишнее распределение,
-      т.к. кнопки и так прижимаются через margin-top:auto */
-    .case .body {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      /* было space-between — это мешало равномерности */
-      flex-grow: 1;
-      padding: 16px;
-    }
-
-    /* 4) Кнопки остаются прижаты к низу как раньше */
-    .case .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-
-    .tag {
-      font-size: 12px;
-      border: 1px solid var(--stroke);
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: var(--muted);
-    }
-
-    /* Timeline */
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 16px;
-      padding: 16px;
-      border: 1px solid var(--stroke);
-      border-radius: 16px;
-      background: #fffef9;
-    }
-
-    .item .when {
-      color: var(--muted)
-    }
-
-    .item h4 {
-      margin: 0 0 6px
-    }
-
-    .item p {
-      margin: 0;
-      color: var(--muted)
-    }
-
-    .bullets {
-      display: grid;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .bullets li {
-      margin-left: 18px
-    }
-
-    /* Footer */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--stroke);
-      color: var(--muted);
-      background: linear-gradient(90deg, #FFD700, #ffdf8d, #E6AC00);
-    }
-
-    /* Utilities */
-    .row {
-      display: flex;
-      gap: var(--gap);
-      flex-wrap: wrap;
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 12px;
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 24px;
-      background: #fffef9;
-      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.15);
-    }
-
-    /* Buttons — единый стиль */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 14px;
-      font-weight: 600;
-      font-size: 15px;
-      cursor: pointer;
-      border: 1px solid var(--stroke);
-      color: var(--txt);
-      background: #fffef9;
-      text-decoration: none;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(184, 134, 11, 0.35);
-      filter: brightness(1.08);
-    }
-
-    .btn.primary {
-      background: var(--gold-gradient);
-      color: #111;
-      border: none;
-      box-shadow: 0 8px 22px rgba(184, 134, 11, 0.25);
-    }
-
-    .btn.primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(184, 134, 11, 0.35);
-      filter: brightness(1.08);
-    }
-
-    .btn.secondary {
-      background: var(--gold-gradienttwo);
-      color: var(--muted);
-      border: 1px solid var(--stroke);
-      transition: all 0.25s ease;
-    }
-
-    .btn.secondary:hover {
-      color: #111;
-      border-color: #E6AC00;
-      background: linear-gradient(105deg, #c99d4c, #f5b745);
-      box-shadow: 0 6px 18px rgba(184, 134, 11, 0.25);
-      transform: translateY(-2px);
-    }
-
-    .nav .btn {
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-
-    .nav .btn.primary {
-      box-shadow: 0 6px 16px rgba(184, 134, 11, 0.25);
-    }
-
-    .nav .btn.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.35);
-    }
-
-    .modal .btn {
-      margin-top: 10px
-    }
-
-    /* Responsive */
-    @media (max-width: 980px) {
-      .grid-hero {
-        grid-template-columns: 1fr
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Михаил Лазарев - AI/Product Engineer и AI-assisted product builder: AI-first MVP, pilot-ready products, LLM workflows, Python automation, dashboards и API-интеграции.">
+    <meta name="theme-color" content="#101715">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Михаил Лазарев - AI/Product Engineer">
+    <meta property="og:description" content="Превращаю хаотичные AI/automation-задачи в MVP и пилотные продукты с интерфейсом, интеграциями, контролем качества и roadmap.">
+    <meta property="og:image" content="assets/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Михаил Лазарев - AI/Product Engineer">
+    <meta name="twitter:description" content="AI-assisted product builder: AI-first MVPs, pilot-ready products, LLM workflows, Python automation, dashboards and internal tools.">
+    <link rel="stylesheet" href="styles.css">
+    <title>Михаил Лазарев - AI/Product Engineer</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "#profile",
+            "name": "Mikhail Lazarev AI/Product Engineer Portfolio",
+            "description": "Portfolio and resume page for Mikhail Lazarev, AI/Product Engineer and AI-assisted product builder.",
+            "inLanguage": ["ru", "en"],
+            "mainEntity": { "@id": "#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "#person",
+            "name": "Mikhail Lazarev",
+            "alternateName": "Михаил Лазарев",
+            "jobTitle": "AI/Product Engineer",
+            "email": "mailto:rieltor0001@gmail.com",
+            "telephone": "+79992073105",
+            "image": "assets/profile.jpg",
+            "url": "https://miklitai.github.io/systemanalyst",
+            "sameAs": ["https://miklitai.github.io/systemanalyst"],
+            "knowsAbout": [
+              "AI-first MVP",
+              "AI-assisted engineering",
+              "Modern engineering practices",
+              "Pilot-ready products",
+              "LLM workflows",
+              "Python automation",
+              "React dashboards",
+              "Local-first tools",
+              "Business analysis",
+              "API integrations"
+            ],
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "AI/Product Engineer",
+              "skills": "AI-assisted engineering, Python, LLM pipelines, React, TypeScript, SQLite, Telegram Bot API, HH.ru API, systems analysis, dashboard UX"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "#ai-business-master",
+            "name": "АИ бизнес мастер",
+            "alternateName": "AI Business Master",
+            "creator": { "@id": "#person" },
+            "description": "AI business intelligence and research pipeline with source-backed reports, checkpoints and JSON artifacts."
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "#audioaudit",
+            "name": "АудиоАУДИТ / Call System",
+            "creator": { "@id": "#person" },
+            "description": "AI call analytics dashboard for sales quality, operator errors, funnel stages and executive summaries."
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "#pulse",
+            "name": "Pulse",
+            "creator": { "@id": "#person" },
+            "description": "AI editorial workflow for source collection, scoring, drafting, validation and multi-channel publishing."
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "#small-ai-automation-builds",
+            "name": "Малые AI/automation продукты",
+            "alternateName": "Small AI and automation builds",
+            "creator": { "@id": "#person" },
+            "description": "A collection of smaller AI, chatbot, server automation, integration and operations tasks."
+          }
+        ]
       }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      <span data-lang="ru">Перейти к содержанию</span>
+      <span data-lang="en">Skip to content</span>
+    </a>
 
-      .cases {
-        grid-template-columns: 1fr 1fr
-      }
+    <div class="scroll-meter" aria-hidden="true"></div>
 
-      .item {
-        grid-template-columns: 1fr
-      }
-    }
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Михаил Лазарев">
+        <span class="brand-mark">ML</span>
+        <span>
+          <span data-lang="ru">Михаил Лазарев</span>
+          <span data-lang="en">Mikhail Lazarev</span>
+        </span>
+      </a>
 
-    @media (max-width: 640px) {
-      .cases {
-        grid-template-columns: 1fr
-      }
-    }
-
-    /* Reveal on scroll */
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    [data-reveal].in {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Print */
-    @media print {
-
-      header,
-      .hero-cta .btn.secondary,
-      .case .actions {
-        display: none !important;
-      }
-
-      .case .thumb {
-        background: #fff
-      }
-
-      body {
-        background: #fff;
-        color: #000
-      }
-
-      .card,
-      .item,
-      .case {
-        border-color: #aaa
-      }
-
-      a {
-        color: #000
-      }
-    }
-  </style>
-
-</head>
-
-<body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1>Михаил Лазарев · Системный аналитик</h1>
-      </div>
-      <nav class="row">
-        <a href="#skills" class="btn secondary">Навыки</a>
-        <a href="#cases" class="btn secondary">Кейсы</a>
-        <a href="#experience" class="btn secondary">Опыт</a>
-        <a href="#contacts" class="btn primary">Связаться</a>
+      <nav class="nav" aria-label="Навигация">
+        <a href="#offer"><span data-lang="ru">Ценность</span><span data-lang="en">Value</span></a>
+        <a href="#process"><span data-lang="ru">Подход</span><span data-lang="en">Process</span></a>
+        <a href="#cases"><span data-lang="ru">Кейсы</span><span data-lang="en">Cases</span></a>
+        <a href="#experience"><span data-lang="ru">Опыт</span><span data-lang="en">Experience</span></a>
+        <a href="#contact"><span data-lang="ru">Контакты</span><span data-lang="en">Contact</span></a>
       </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container grid-hero">
-        <div>
-          <div class="kicker"><span class="spark"></span> Удалённо · Системный аналитик</div>
-          <h2 class="h1" data-reveal>Делаю бизнес-процессы прозрачными, требования — однозначными, а разработку —
-            предсказуемой</h2>
-          <p class="lead" style="font-size: 35px; line-height: 1.6;" data-reveal>
-            Сильные стороны:
-            <li style="font-size: 20px">BPMN/UML</li>
-            <li style="font-size: 20px">Сбор и формализация требований</li>
-            <li style="font-size: 20px">Интеграции (REST/SOAP)</li>
-            <li style="font-size: 20px">документация в Confluence/Notion</li>
-            <li style="font-size: 20px">SQL, прототипирование, Bitrix24 (D7)</li>
-            <li style="font-size: 20px">AI‑боты, N8N и RAG‑системы для автоматизации</li>
-            <li style="font-size: 20px">Готов очень быстро освоить новые направления.
-            <li style="font-size: 20px">Постоянно повышаю квалификацию</li>
+      <div class="top-actions">
+        <div class="language-switch" role="group" aria-label="Выбор языка / Language">
+          <button class="active" type="button" data-language="ru" aria-pressed="true">RU</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-system" aria-hidden="true">
+          <div class="system-panel system-panel-a"></div>
+          <div class="system-panel system-panel-b"></div>
+          <div class="system-panel system-panel-c"></div>
+          <div class="system-rail system-rail-a"></div>
+          <div class="system-rail system-rail-b"></div>
+          <div class="system-rail system-rail-c"></div>
+        </div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">
+            <span data-lang="ru">AI/Product Engineer · AI-assisted Product Builder · Systems Analyst</span>
+            <span data-lang="en">AI/Product Engineer · AI-assisted Product Builder · Systems Analyst</span>
           </p>
-
-          <div class="hero-cta" data-reveal>
-            <a class="btn primary" href="#contacts">Обсудить задачу</a>
-            <a class="btn secondary" href="#cases">Смотреть кейсы</a>
-            <!-- <a class="btn ghost" href="#resume">Скачать PDF</a> -->
+          <h1>
+            <span data-lang="ru">Превращаю AI-идеи и хаотичные процессы в MVP и рабочие продукты</span>
+            <span data-lang="en">I turn AI ideas and messy workflows into MVPs and usable products</span>
+          </h1>
+          <p class="hero-lead">
+            <span data-lang="ru">Работаю в формате AI-assisted engineering и опираюсь на современные инженерные и продуктовые практики из сильных AI/product-команд. Быстро исследую неизвестное, проверяю решения через документацию, тесты и реальные сценарии, собираю Python/LLM backend, dashboard, API-интеграции, контроль качества и roadmap.</span>
+            <span data-lang="en">I work through AI-assisted engineering and rely on modern engineering and product practices used by strong AI/product teams. I research unknowns quickly, verify decisions through docs, tests and real scenarios, and build Python/LLM backends, dashboards, API integrations, quality control and roadmaps.</span>
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">
+              <span data-lang="ru">Обсудить роль</span>
+              <span data-lang="en">Discuss a role</span>
+            </a>
+            <a class="button secondary" href="#cases">
+              <span data-lang="ru">Смотреть кейсы</span>
+              <span data-lang="en">View cases</span>
+            </a>
           </div>
         </div>
-        <aside class="card-hero" aria-label="Краткие факты" data-reveal>
-          <div class="stat">
-            <span class="dot"></span>
-            <div>
-              <b>15+ сложных процессов</b>
-              <small>моделировал и запускал (HR, Support, Payments)</small>
-              <img src="process.jpg" alt="Пример бизнес-процесса" class="stat-photo">
+      </section>
+
+      <section class="proof-band reveal" aria-label="Ключевые факты">
+        <div>
+          <strong>8+</strong>
+          <span data-lang="ru">лет общего опыта в процессах, IT, автоматизации и AI</span>
+          <span data-lang="en">years across operations, IT, automation and AI</span>
+        </div>
+        <div>
+          <strong>7+</strong>
+          <span data-lang="ru">рабочих portfolio cases: AI, CRM, dashboards, bots, server tasks</span>
+          <span data-lang="en">working portfolio cases: AI, CRM, dashboards, bots, server tasks</span>
+        </div>
+        <div>
+          <strong>0→1</strong>
+          <span data-lang="ru">от идеи и требований до MVP, пилота, UI, интеграций и roadmap</span>
+          <span data-lang="en">from idea and requirements to MVP, pilot, UI, integrations and roadmap</span>
+        </div>
+        <div>
+          <strong>AI</strong>
+          <span data-lang="ru">AI-assisted research, LLM pipelines, validation, automation</span>
+          <span data-lang="en">AI-assisted research, LLM pipelines, validation, automation</span>
+        </div>
+      </section>
+
+      <section class="section offer" id="offer">
+        <div class="section-heading reveal">
+          <p class="eyebrow">
+            <span data-lang="ru">Ценность для команды</span>
+            <span data-lang="en">Value for the team</span>
+          </p>
+          <h2>
+            <span data-lang="ru">Закрываю разрыв между идеей, требованиями и рабочим AI-продуктом</span>
+            <span data-lang="en">I close the gap between idea, requirements and a working AI product</span>
+          </h2>
+          <p>
+            <span data-lang="ru">Я полезен там, где нужно не просто подключить модель, а собрать полный продуктовый контур и помогать команде шире своей узкой задачи: видеть риски, предлагать решения, быстро подхватывать смежные вопросы и доводить работу до результата.</span>
+            <span data-lang="en">I am useful where the task is not just connecting a model, but building the full product loop and helping the team beyond a narrow ticket: spotting risks, suggesting better options, picking up adjacent work and moving it to a usable result.</span>
+          </p>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer-item reveal">
+            <span class="item-number">01</span>
+            <h3><span data-lang="ru">Формализовать хаос</span><span data-lang="en">Structure the chaos</span></h3>
+            <p><span data-lang="ru">Быстро вытаскиваю сценарий, ограничения, роли, данные, критерии успеха и scope первого продукта.</span><span data-lang="en">I quickly extract the scenario, constraints, roles, data, success criteria and first product scope.</span></p>
+          </article>
+
+          <article class="offer-item reveal">
+            <span class="item-number">02</span>
+            <h3><span data-lang="ru">Собрать AI-контур</span><span data-lang="en">Build the AI loop</span></h3>
+            <p><span data-lang="ru">Python, LLM workflow, prompts, validation gates, storage, API, background workers и fallback-сценарии.</span><span data-lang="en">Python, LLM workflow, prompts, validation gates, storage, API, background workers and fallbacks.</span></p>
+          </article>
+
+          <article class="offer-item reveal">
+            <span class="item-number">03</span>
+            <h3><span data-lang="ru">Показать ценность в интерфейсе</span><span data-lang="en">Make value visible</span></h3>
+            <p><span data-lang="ru">Dashboard, admin UI, статусы, очереди, отчеты, ошибки, next actions и понятная работа пользователя.</span><span data-lang="en">Dashboard, admin UI, statuses, queues, reports, errors, next actions and clear user work.</span></p>
+          </article>
+
+          <article class="offer-item reveal">
+            <span class="item-number">04</span>
+            <h3><span data-lang="ru">Довести до продукта</span><span data-lang="en">Push it toward product</span></h3>
+            <p><span data-lang="ru">Пилотный сценарий, документация, roadmap, риски, стоимость LLM, приватность данных, backups и поддерживаемая структура.</span><span data-lang="en">Pilot scenario, documentation, roadmap, risks, LLM cost, data privacy, backups and maintainable structure.</span></p>
+          </article>
+
+          <article class="offer-item reveal">
+            <span class="item-number">05</span>
+            <h3><span data-lang="ru">Помогать рядом со своей зоной</span><span data-lang="en">Support adjacent work</span></h3>
+            <p><span data-lang="ru">Могу подхватить смежные задачи, подсветить слабые места, предложить инструменты и помочь команде быстрее закрыть важный кусок работы.</span><span data-lang="en">I can pick up adjacent tasks, surface weak spots, suggest tools and help the team close important work faster.</span></p>
+          </article>
+
+          <article class="offer-item reveal">
+            <span class="item-number">06</span>
+            <h3><span data-lang="ru">Встроиться в темп команды</span><span data-lang="en">Fit the team tempo</span></h3>
+            <p><span data-lang="ru">Легко нахожу общий язык с новыми людьми, быстро уточняю контекст и умею держать несколько рабочих потоков без потери фокуса.</span><span data-lang="en">I connect easily with new people, clarify context quickly and can handle several work streams without losing focus.</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section process" id="process">
+        <div class="process-sticky reveal">
+          <p class="eyebrow"><span data-lang="ru">Как я работаю</span><span data-lang="en">How I work</span></p>
+          <h2><span data-lang="ru">Не начинаю с модели. Начинаю с результата, который нужен бизнесу.</span><span data-lang="en">I do not start with the model. I start with the result the business needs.</span></h2>
+          <p><span data-lang="ru">AI-инструменты ускоряют ресерч, сборку и отладку, но ответственность остаётся инженерной: понять цели компании, проверить решение, зафиксировать риски и довести результат до понятного использования.</span><span data-lang="en">AI tools speed up research, building and debugging, but the engineering responsibility stays human: understand company goals, verify the solution, document risks and make the result usable.</span></p>
+        </div>
+
+        <div class="process-steps">
+          <article class="process-step reveal">
+            <span>01</span>
+            <h3><span data-lang="ru">Workflow</span><span data-lang="en">Workflow</span></h3>
+            <p><span data-lang="ru">Кто пользователь, что он делает вручную, где теряется время, деньги или качество, какой результат должен быть проверяемым.</span><span data-lang="en">Who the user is, what they do manually, where time, money or quality is lost, and what output must be verifiable.</span></p>
+          </article>
+          <article class="process-step reveal">
+            <span>02</span>
+            <h3><span data-lang="ru">Architecture</span><span data-lang="en">Architecture</span></h3>
+            <p><span data-lang="ru">Минимальная схема данных, роли, статусы, LLM-шаги, интеграции, риски, fallback и границы первого продукта.</span><span data-lang="en">Minimal data model, roles, statuses, LLM steps, integrations, risks, fallbacks and first product boundaries.</span></p>
+          </article>
+          <article class="process-step reveal">
+            <span>03</span>
+            <h3><span data-lang="ru">Build</span><span data-lang="en">Build</span></h3>
+            <p><span data-lang="ru">Backend, UI, pipeline, storage, API, worker, logs, admin-сценарии и всё, что нужно для реального ежедневного использования.</span><span data-lang="en">Backend, UI, pipeline, storage, API, worker, logs, admin flows and everything needed for real daily use.</span></p>
+          </article>
+          <article class="process-step reveal">
+            <span>04</span>
+            <h3><span data-lang="ru">Proof</span><span data-lang="en">Proof</span></h3>
+            <p><span data-lang="ru">Отчеты, артефакты, demo flow, документация, roadmap и понятный ответ: что уже работает, что рискованно, что делать дальше.</span><span data-lang="en">Reports, artifacts, demo flow, documentation, roadmap and a clear answer: what works, what is risky, what comes next.</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section cases" id="cases">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span data-lang="ru">Выбранные кейсы</span><span data-lang="en">Selected cases</span></p>
+          <h2><span data-lang="ru">Проекты показывают не только стек, а способ мышления</span><span data-lang="en">The projects show not just stack, but operating style</span></h2>
+          <p><span data-lang="ru">В этих проектах я не только собирал интерфейсы и backend, но и продумывал архитектуру: данные, роли, workflow, риски, проверки и путь развития.</span><span data-lang="en">In these projects I did not only build interfaces and backends; I also shaped the architecture: data, roles, workflow, risks, validation and the path forward.</span></p>
+        </div>
+
+        <div class="case-list">
+          <article class="case-row featured reveal" id="audioaudit">
+            <div class="case-index">01</div>
+            <div class="case-main">
+              <p class="case-kicker">AI call analytics / management dashboard</p>
+              <h3>АудиоАУДИТ / Call System</h3>
+              <p><span data-lang="ru">Инструмент для руководителя: качество звонков, ошибки операторов, причины потерь, этапы воронки, денежные сигналы и executive summaries по потокам/клиентам.</span><span data-lang="en">A management tool for call quality, operator mistakes, loss reasons, funnel stages, money signals and executive summaries across streams and clients.</span></p>
             </div>
-          </div>
-
-          <div class="stat">
-            <span class="dot"></span>
-            <div>
-              <b>AI-инициативы</b>
-              <small>внедрение RAG-ботов и аудита звонков; отчёты PDF/Telegram</small>
-              <img src="ai.jpg" alt="AI проект" class="stat-photo">
-            </div>
-          </div>
-
-          <div class="stat">
-            <span class="dot"></span>
-            <div>
-              <b>Bitrix24 D7</b>
-              <small>статусные БП, Highload-блоки, ORM, UI-фильтры</small>
-              <img src="bitrix.jpg" alt="Bitrix24 D7" class="stat-photo">
-            </div>
-          </div>
-
-          <div class="stat">
-            <span class="dot"></span>
-            <div>
-              <b>Фокус на результате</b>
-              <small>сроки, метрики, прозрачные артефакты (BPMN/UML/SRS)</small>
-              <img src="result.jpg" alt="Результаты работы" class="stat-photo">
-            </div>
-          </div>
-        </aside>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills-section" data-reveal>
-      <div class="container">
-        <h2 class="skills-title">Навыки</h2>
-
-        <div class="skills-grid">
-          <div class="skill-block">
-            <h3>Методы анализа и проектирования</h3>
-            <ul>
-              <li>BPMN · UML · Use Cases · ERD</li>
-              <li>Сбор и формализация требований</li>
-              <li>Интервью и воркшопы</li>
-              <li>Спецификации · Прототипирование (Miro, Figma)</li>
-            </ul>
-          </div>
-
-          <div class="skill-block">
-            <h3>Интеграции и API</h3>
-            <ul>
-              <li>REST · SOAP · JSON · XML</li>
-              <li>Swagger · Postman · Telegram API · Webhooks</li>
-            </ul>
-          </div>
-
-          <div class="skill-block">
-            <h3>Данные и базы</h3>
-            <ul>
-              <li>SQL · PostgreSQL · MySQL</li>
-              <li>Проектирование структуры данных</li>
-              <li>Отчёты и аналитика</li>
-            </ul>
-          </div>
-
-          <div class="skill-block">
-            <h3>Инструменты и системы</h3>
-            <ul>
-              <li>Bitrix24 (коробка) · D7 · ORM · UI.Filter</li>
-              <li>Jira · Confluence · Notion</li>
-              <li>Miro · Figma · Git</li>
-              <li>N8N (no-code автоматизация)</li>
-            </ul>
-          </div>
-
-          <div class="skill-block">
-            <h3>AI и автоматизация</h3>
-            <ul>
-              <li>AI-боты · RAG-системы · AI-аудит звонков</li>
-              <li>Python-скрипты · Fine-tuning моделей</li>
-              <li>vLLM · ClearML · Label Studio</li>
-              <li>Работа с серверами VDS/VPS · SSH · Docker</li>
-              <li>Вайбкодинг · Слежение за трендами AI</li>
-            </ul>
-          </div>
-
-          <div class="skill-block">
-            <h3>Общие профессиональные навыки</h3>
-            <ul>
-              <li>Аналитическое и системное мышление</li>
-              <li>Проектирование данных и логики</li>
-              <li>Документация (Confluence · Notion)</li>
-              <li>Организация процессов и приоритизация задач</li>
-              <li>Взаимодействие с командой и заказчиком</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- <div class="container">
-        <div class="section-head">
-          <h2>Навыки и фокус</h2>
-          <div class="sub">Что именно я делаю лучше всего</div>
-        </div>
-        <div class="skills" data-reveal>
-          <div class="chip">Сбор и уточнение требований (интервью, воркшопы)</div>
-          <div class="chip">Моделирование BPMN/UML · Use Case · ERD</div>
-          <div class="chip">API-интеграции · REST/SOAP · JSON/XML</div>
-          <div class="chip">Проектирование данных · SQL · отчёты</div>
-          <div class="chip">Спецификации · SRS · User Stories</div>
-          <div class="chip">Прототипы UI · Miro/Figma</div>
-          <div class="chip">Bitrix24 (коробка) · D7 · HL‑блоки</div>
-          <div class="chip">AI‑боты · RAG · аналитика звонков</div>
-        </div>
-
-        <div class="section-head" style="margin-top:28px">
-          <h2>Инструменты</h2>
-          <div class="sub">Регулярно использую в проектах</div>
-        </div>
-        <div class="stack" data-reveal>
-          <div class="tool">Jira</div>
-          <div class="tool">Confluence</div>
-          <div class="tool">Miro</div>
-          <div class="tool">Figma</div>
-          <div class="tool">Postman</div>
-          <div class="tool">Swagger</div>
-          <div class="tool">Bitrix24</div>
-          <div class="tool">SQL</div>
-          <div class="tool">Python</div>
-          <div class="tool">Git</div>
-          <div class="tool">Telegram API</div>
-          <div class="tool">Notion</div>
-        </div>
-      </div> -->
-    </section>
-
-    <!-- CASES / PORTFOLIO -->
-    <section id="cases">
-      <div class="container">
-        <div class="section-head">
-          <h2>Выбранные кейсы</h2>
-          <div class="sub">Клик по карточке — детали и артефакты</div>
-        </div>
-        <div class="cases" data-reveal>
-
-          <!-- Case 1 -->
-          <article class="case">
-            <div class="thumb" aria-label="AI аудит звонков">
-              <img src="Case1.png" alt="AI аудит звонков">
-            </div>
-            <div class="body">
-              <div class="meta">
-                <span class="tag">AI/RAG</span><span class="tag">Телефония</span><span class="tag">Отчёты</span>
-              </div>
-              <h3>AI-аудит звонков: чек-листы, метрики, PDF/Telegram отчёты</h3>
-              <p class="muted">Автоматический анализ звонков по чек-листам с отчётами в PDF и Telegram. Метрики по
-                операторам
-                и динамика за день/месяц.</p>
-              <div class="actions">
-                <button class="btn secondary" data-open="modal-ai">Подробнее</button>
-              </div>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Архитектура продукта и потоков аудита, dashboard, QA layer, business analytics, roles, storage/admin views, reports, UX-подготовка к пилоту.</span><span data-lang="en">Product and audit-flow architecture, dashboard, QA layer, business analytics, roles, storage/admin views, reports and pilot UX preparation.</span></p>
+              <div class="tags"><span>AI QA</span><span>Sales</span><span>Reports</span></div>
             </div>
           </article>
-          <dialog id="modal-ai" class="modal">
-            <article class="card" style="max-width:900px">
-              <h3 style="margin-top:0">AI-аудит звонков</h3>
-              <p class="muted">Система анализирует звонки операторов по заранее заданным чек-листам.
-                Реализованы JSON-схемы, метрики, отчётность по дням и месяцам, интеграции с Telegram, интерфейс и
-                диаграммы
-                для визуализации.
-                Итог — прозрачная оценка качества общения и автоматические рекомендации.</p>
-              <div class="row"><button class="btn" data-close>Закрыть</button></div>
-            </article>
-          </dialog>
 
-          <!-- Case 2 -->
-          <article class="case">
-            <div class="thumb" aria-label="RAG чат-боты">
-              <img src="Case2.png" alt="AI аудит звонков">
+          <article class="case-row reveal" id="ai-business-master">
+            <div class="case-index">02</div>
+            <div class="case-main">
+              <p class="case-kicker">AI business intelligence / research pipeline</p>
+              <h3><span data-lang="ru">АИ бизнес мастер</span><span data-lang="en">AI Business Master</span></h3>
+              <p><span data-lang="ru">Превращает широкий бизнес-вопрос в структурированное исследование с источниками, credibility scoring, выводами, action plan и сохраненными JSON/Markdown-артефактами.</span><span data-lang="en">Turns a broad business question into structured research with sources, credibility scoring, conclusions, action plan and stored JSON/Markdown artifacts.</span></p>
             </div>
-            <div class="body">
-              <div class="meta">
-                <span class="tag">RAG</span><span class="tag">Интеграции</span><span class="tag">Docs</span>
-              </div>
-              <h3>Умные чат-боты: FAQ/Вики, интеграции и база знаний</h3>
-              <p class="muted">RAG-боты с векторной базой знаний и интеграциями в бизнес-системы. Отвечают по
-                корпоративным материалам точно и безопасно.</p>
-              <div class="actions">
-                <button class="btn secondary" data-open="modal-rag">Подробнее</button>
-              </div>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Архитектура multi-step pipeline: planner, search, source fetcher, verifier, workflow-specific analysis, reports, checkpoints, local web UI и CLI.</span><span data-lang="en">Multi-step pipeline architecture: planner, search, source fetcher, verifier, workflow-specific analysis, reports, checkpoints, local web UI and CLI.</span></p>
+              <div class="tags"><span>Python</span><span>LLM</span><span>Search</span></div>
             </div>
           </article>
-          <dialog id="modal-rag" class="modal">
-            <article class="card" style="max-width:900px">
-              <h3 style="margin-top:0">RAG-чат-боты и базы знаний</h3>
-              <p class="muted">Спроектированы пайплайны для RAG-ботов: векторная база знаний, предобработка контента,
-                генерация ответов через GPT.
-                Настроены KPI по точности ответов и срокам внедрения. Поддержка API-интеграций с CRM и внутренними
-                документами.</p>
-              <div class="row"><button class="btn" data-close>Закрыть</button></div>
-            </article>
-          </dialog>
 
-          <!-- Case 3 -->
-          <article class="case">
-            <div class="thumb" aria-label="Новостной AI агент">
-              <img src="Case3.png" alt="AI аудит звонков">
+          <article class="case-row reveal" id="pulse">
+            <div class="case-index">03</div>
+            <div class="case-main">
+              <p class="case-kicker">AI editorial workflow</p>
+              <h3>Pulse</h3>
+              <p><span data-lang="ru">Редакторский AI-агент: сбор источников, scoring, LLM-аналитика, подготовка материалов, validation/compliance, ручное утверждение и публикация.</span><span data-lang="en">Editorial AI agent: source collection, scoring, LLM analytics, content preparation, validation/compliance, manual approval and publishing.</span></p>
             </div>
-            <div class="body">
-              <div class="meta">
-                <span class="tag">AI</span><span class="tag">Telegram</span><span class="tag">Автоматизация</span>
-              </div>
-              <h3>Новостной ИИ-агент PulseAI</h3>
-              <p class="muted">ИИ-агент собирает новости из десятков источников, анализирует и публикует в Telegram в
-                виде кратких сводок.</p>
-              <div class="actions">
-                <button class="btn secondary" data-open="modal-pulse">Подробнее</button>
-              </div>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Архитектура editorial workflow, SQLite source registry, admin UI, editorial queues, compliance queue, publication log, Telegram/premium/web delivery.</span><span data-lang="en">Editorial workflow architecture, SQLite source registry, admin UI, editorial queues, compliance queue, publication log and Telegram/premium/web delivery.</span></p>
+              <div class="tags"><span>SQLite</span><span>Telegram</span><span>Admin UI</span></div>
             </div>
           </article>
-          <dialog id="modal-pulse" class="modal">
-            <article class="card" style="max-width:900px">
-              <h3 style="margin-top:0">Новостной ИИ-агент PulseAI</h3>
-              <p class="muted">Система собирает данные из каналов Telegram, RSS и соцсетей, применяет нейросеть для
-                извлечения ключевых фактов, сокращения и перевода.
-                Итоговые новости автоматически публикуются в Telegram-канал с тегами и форматированием. Используется
-                связка Telethon + DeepSeek.</p>
-              <div class="row"><button class="btn" data-close>Закрыть</button></div>
-            </article>
-          </dialog>
 
-          <!-- Case 4 -->
-          <article class="case">
-            <div class="thumb" aria-label="AI постановщик задач">
-              <img src="Case4.png" alt="AI аудит звонков">
+          <article class="case-row reveal">
+            <div class="case-index">04</div>
+            <div class="case-main">
+              <p class="case-kicker">Career operating system / CRM</p>
+              <h3>HH Career CRM</h3>
+              <p><span data-lang="ru">Локальная CRM для поиска работы: HH API, multi-profile search, Telegram alerts, salary gate, SQLite registry, статусы, заметки, reminders и watcher.</span><span data-lang="en">Local career CRM: HH API, multi-profile search, Telegram alerts, salary gate, SQLite registry, statuses, notes, reminders and watcher.</span></p>
             </div>
-            <div class="body">
-              <div class="meta">
-                <span class="tag">AI</span><span class="tag">JSON</span><span class="tag">Bitrix24</span>
-              </div>
-              <h3>ИИ-помощник постановки задач</h3>
-              <p class="muted">Руководитель просто говорит задачу — ИИ формирует JSON и создаёт задачу в CRM с
-                приоритетом и сроками.</p>
-              <div class="actions">
-                <button class="btn secondary" data-open="modal-taskai">Подробнее</button>
-              </div>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Архитектура локальной CRM, data pipeline, deduplication, profile labels, dashboard, quality bench, backups, closed-vacancy sync.</span><span data-lang="en">Local CRM architecture, data pipeline, deduplication, profile labels, dashboard, quality bench, backups and closed-vacancy sync.</span></p>
+              <div class="tags"><span>HH API</span><span>Automation</span><span>SQLite</span></div>
             </div>
           </article>
-          <dialog id="modal-taskai" class="modal">
-            <article class="card" style="max-width:900px">
-              <h3 style="margin-top:0">ИИ-помощник постановки задач</h3>
-              <p class="muted">Голос или текстовое сообщение анализируется моделью GPT, извлекаются цель, приоритет и
-                срок.
-                На выходе формируется JSON-структура и автоматически создаётся задача в Bitrix24 или AMOcrm.
-                Экономит время руководителей и снижает количество неточных задач.</p>
-              <div class="row"><button class="btn" data-close>Закрыть</button></div>
-            </article>
-          </dialog>
 
-          <!-- Case 5 -->
-          <article class="case">
-            <div class="thumb" aria-label="CRM автоматизация">
-              <img src="Case5.png" alt="AI аудит звонков">
+          <article class="case-row reveal">
+            <div class="case-index">05</div>
+            <div class="case-main">
+              <p class="case-kicker">Multi-source document workspace</p>
+              <h3>SourceDesk</h3>
+              <p><span data-lang="ru">React/TypeScript workspace для анализа PDF, изображений, TXT, Markdown, CSV, URL-панелей и заметок в одном рабочем окне.</span><span data-lang="en">React/TypeScript workspace for PDFs, images, TXT, Markdown, CSV, URL panels and notes in one working surface.</span></p>
             </div>
-            <div class="body">
-              <div class="meta">
-                <span class="tag">BPMN/UML</span><span class="tag">Bitrix24 D7</span><span class="tag">HR</span>
-              </div>
-              <h3>Автоматизации в CRM: статусные процессы и проверки</h3>
-              <p class="muted">Реализованы сложные бизнес-процессы в Bitrix24: увольнение, найм, согласования и
-                уведомления.</p>
-              <div class="actions">
-                <button class="btn secondary" data-open="modal-bpmn">Подробнее</button>
-              </div>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Архитектура workspace UI, resizable panels, drag and drop, file viewers, URL panels, notes, IndexedDB persistence и technical MVP.</span><span data-lang="en">Workspace UI architecture, resizable panels, drag and drop, file viewers, URL panels, notes, IndexedDB persistence and technical MVP.</span></p>
+              <div class="tags"><span>React</span><span>TypeScript</span><span>UX</span></div>
             </div>
           </article>
-          <dialog id="modal-bpmn" class="modal">
-            <article class="card" style="max-width:900px">
-              <h3 style="margin-top:0">Автоматизации в CRM системах</h3>
-              <p class="muted">Собрал требования, сделал BPMN-диаграммы, реализовал статусы, роли, уведомления, проверки
-                и документы.
-                Интеграция с Highload-блоками и D7 ORM. Сократил количество ошибок и ускорил процесс согласования в 2–3
-                раза.</p>
-              <div class="row"><button class="btn" data-close>Закрыть</button></div>
-            </article>
-          </dialog>
 
-          <!-- Case 6 -->
-          <article class="case">
-            <div class="thumb" aria-label="BMW бот">
-              <img src="Case6.png" alt="AI аудит звонков">
+          <article class="case-row reveal">
+            <div class="case-index">06</div>
+            <div class="case-main">
+              <p class="case-kicker">Local project command center</p>
+              <h3>Project Dashboard</h3>
+              <p><span data-lang="ru">Локальный центр управления проектами: статусы, roadmap progress, бизнес-фокус, local process control, серверные карточки и стандарты документации.</span><span data-lang="en">Local project command center: statuses, roadmap progress, business focus, local process control, server cards and documentation standards.</span></p>
             </div>
-            <div class="body">
-              <div class="meta">
-                <span class="tag">Telegram Bot</span><span class="tag">AI</span><span class="tag">Feedback</span>
-              </div>
-              <h3>Telegram-бот для автосервиса BMW</h3>
-              <p class="muted">Бот для сбора отзывов и выдачи бонусов клиентам. Позволяет улучшить качество сервиса и
-                лояльность.</p>
-              <div class="actions">
-                <button class="btn secondary" data-open="modal-bmw">Подробнее</button>
-              </div>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Архитектура локального центра управления, filesystem scanner, JSON configs, process supervision, roadmap/business tabs и безопасная работа с external servers.</span><span data-lang="en">Local command-center architecture, filesystem scanner, JSON configs, process supervision, roadmap/business tabs and safe handling of external servers.</span></p>
+              <div class="tags"><span>Python</span><span>Vanilla JS</span><span>Ops</span></div>
             </div>
           </article>
-          <dialog id="modal-bmw" class="modal">
-            <article class="card" style="max-width:900px">
-              <h3 style="margin-top:0">Telegram-бот для автосервиса BMW</h3>
-              <p class="muted">Проект включал сбор требований, написание user stories и проектирование диалогов.
-                Реализован бот для обратной связи, бонусов и рассылок.
-                Позволяет автоматизировать сбор отзывов и улучшить клиентский опыт.</p>
-              <div class="row"><button class="btn" data-close>Закрыть</button></div>
-            </article>
-          </dialog>
 
-        </div>
-        <p class="muted" style="margin-top:14px" data-reveal>Полный список кейсов доступен по запросу. Могу быстро
-          подготовить демо под вашу предметную область.</p>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="container">
-        <div class="section-head">
-          <h2>Опыт</h2>
-          <div class="sub">Коротко и по делу</div>
-        </div>
-
-        <div class="timeline" data-reveal>
-
-          <div class="item">
-            <div class="when">2024–2025 · по найму</div>
-            <div>
-              <h4>Системный аналитик / Solution Designer</h4>
-              <p>Bitrix24 (коробка), AI-инициативы (RAG-боты, аудит звонков), интеграции, отчёты.</p>
-              <ul class="bullets">
-                <li>BPMN/UML, SRS, User Stories, политика ролей/уведомлений</li>
-                <li>UI-прототипы, согласование с заказчиком, декомпозиция задач</li>
-                <li>Контроль реализации: backlog, критерии готовности, приёмка</li>
-                <li>RAG-боты: архитектура, векторные БД, интеграции GPT</li>
-                <li>AI-аудит звонков: транскрибация, чек-листы, метрики, отчёты</li>
-                <li>API-интеграции: Telegram, HeadHunter, Mango Office, Bitrix24 (D7)</li>
-              </ul>
+          <article class="case-row reveal">
+            <div class="case-index">07</div>
+            <div class="case-main">
+              <p class="case-kicker">Small AI / automation / server builds</p>
+              <h3><span data-lang="ru">Малые продукты и сложные технические задачи</span><span data-lang="en">Small products and complex technical tasks</span></h3>
+              <p><span data-lang="ru">Чат-боты, интеграции, локальные инструменты, серверные задачи, рабочие скрипты, автоматизации и быстрые прототипы под конкретную боль команды.</span><span data-lang="en">Chatbots, integrations, local tools, server tasks, working scripts, automations and quick prototypes for a team's specific pain.</span></p>
             </div>
-          </div>
-
-          <div class="item">
-            <div class="when">2023–2024 · фриланс / частные проекты</div>
-            <div>
-              <h4>Бизнес- и системный анализ MVP-продуктов</h4>
-              <p>Анализ, проектирование и тестирование интеллектуальных решений на базе нейросетей и автоматизаций.</p>
-              <ul class="bullets">
-                <li>Исследование MVP-гипотез и проектирование пользовательских сценариев</li>
-                <li>AI-боты и ассистенты: маркетплейс, BMW-сервис, новостной агент PulseAI</li>
-                <li>Документация: схемы данных, диаграммы, ТЗ для разработчиков</li>
-                <li>Построение пайплайнов: сбор данных, векторизация, обработка, отчёты</li>
-                <li>Координация фриланс-разработчиков, тестирование и контроль качества</li>
-              </ul>
+            <div class="case-proof">
+              <strong><span data-lang="ru">Мой вклад</span><span data-lang="en">Contribution</span></strong>
+              <p><span data-lang="ru">Быстрый разбор, архитектура небольшого решения, реализация, проверка, настройка окружения, API/Telegram/server work и документация для дальнейшего использования.</span><span data-lang="en">Fast discovery, small-solution architecture, implementation, validation, environment setup, API/Telegram/server work and documentation for further use.</span></p>
+              <div class="tags"><span>Bots</span><span>Servers</span><span>Automation</span></div>
             </div>
-          </div>
-
-          <div class="item">
-            <div class="when">2023 · фриланс</div>
-            <div>
-              <h4>Разработка сайтов и цифровых решений</h4>
-              <p>Разработка лендингов, настройка автоматизаций, сбор требований и реализация небольших веб-проектов.</p>
-              <ul class="bullets">
-                <li>Анализ задач заказчиков, формализация требований</li>
-                <li>Создание сайтов и интеграций (HTML, CSS, JS, CMS, no-code)</li>
-                <li>UX-логика, структура контента, SEO-оптимизация</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="when">До 2023</div>
-            <div>
-              <h4>Технические и управленческие роли</h4>
-              <p>Опыт работы в фармацевтическом производстве, логистике, управлении процессами и анализе данных.</p>
-              <ul class="bullets">
-                <li>Контроль технологических процессов (GMP-среда)</li>
-                <li>Аналитический подход, внимание к деталям, документирование</li>
-                <li>Организация и контроль работы команд</li>
-              </ul>
-            </div>
-          </div>
-
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CTA SERVICES -->
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>По условиям</h2>
-          <div class="sub">Готов сразу подключиться с быстрым результатом</div>
-        </div>
-        <div class="row" data-reveal>
-          <div class="card" style="flex:1 1 320px">
-            <h3 style="margin:0 0 8px">Только удалённо</h3>
-            <p class="muted">Но готов рассмотреть гибридный график на время спытательного срока</p>
-          </div>
-          <div class="card" style="flex:1 1 320px">
-            <h3 style="margin:0 0 8px">Ищу полную занятость</h3>
-            <p class="muted">Но также рассматриваю проектную работу</p>
-          </div>
-          <div class="card" style="flex:1 1 320px">
-            <h3 style="margin:0 0 8px">Тестовое</h3>
-            <p class="muted">Готов сделать тестовое задание или показать готовые проекты</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTS -->
-    <section id="contacts">
-      <div class="container">
-        <div class="section-head">
-          <h2>Контакты</h2>
-          <div class="sub">Быстрее всего — Telegram</div>
-        </div>
-        <div class="row" data-reveal>
-          <div class="card" style="flex:1 1 360px">
-            <h3 style="margin:0 0 10px">Связаться</h3>
-            <p class="muted">
-              Напишите:
-              <a href="https://t.me/LazarevMikl" target="_blank" rel="noopener">@LazarevMikl</a> ·
-              email: <a href="mailto:xbotstudio@mail.ru">xbotstudio@mail.ru</a>
-            </p>
-            <div class="row" style="justify-content:center; flex-wrap:wrap; gap:12px;">
-              <button class="btn primary" id="copy">Скопировать Telegram</button>
-              <a class="btn primary" href="https://hh.ru/resume/a60bbf60ff0f4150340039ed1f6d6566444446" target="_blank"
-                rel="noopener">
-                Смотреть резюме
-              </a>
-            </div>
-          </div>
+      <section class="section capabilities">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span data-lang="ru">Стек и зона ответственности</span><span data-lang="en">Stack and ownership</span></p>
+          <h2><span data-lang="ru">Могу быть мостом между продуктом, аналитикой и разработкой</span><span data-lang="en">I can bridge product, analysis and engineering</span></h2>
         </div>
 
-        <!-- <div class="card" style="flex:1 1 360px">
-            <h3 style="margin:0 0 10px">Готовность</h3>
-            <p class="muted">Удалённо · полная занятость · старт быстро · тестовое ок.</p>
-          </div> -->
-      </div>
-      </div>
-    </section>
-  </main>
+        <div class="capability-grid">
+          <article class="capability reveal">
+            <h3>AI / LLM</h3>
+            <ul>
+              <li>AI-assisted research, implementation and debugging</li>
+              <li>LLM workflows, RAG, agents, prompt pipelines</li>
+              <li>Validation gates, source-backed reports, artifacts</li>
+              <li>Cost, privacy, fallback and human control thinking</li>
+            </ul>
+          </article>
+          <article class="capability reveal">
+            <h3>Backend / Data</h3>
+            <ul>
+              <li>Python, aiohttp, local HTTP servers, CLI tools</li>
+              <li>SQLite, JSON/YAML configs, backups, event logs</li>
+              <li>Workers, watchers, Telegram API, HH.ru API, RSS/API</li>
+            </ul>
+          </article>
+          <article class="capability reveal">
+            <h3>Frontend / UX</h3>
+            <ul>
+              <li>React, TypeScript, Vite, vanilla JS dashboards</li>
+              <li>Admin UI, dense operational interfaces, responsive layout</li>
+              <li>IndexedDB/Dexie, PDF/file viewers, workspace UI</li>
+            </ul>
+          </article>
+          <article class="capability reveal">
+            <h3>Product / Analysis</h3>
+            <ul>
+              <li>Requirements, ТЗ, API specs, MVP scope</li>
+              <li>Workflow design, roadmap, risk control, documentation</li>
+              <li>Prepared analysis, written breakdowns, task setting</li>
+            </ul>
+          </article>
+          <article class="capability reveal">
+            <h3>Learning / Adaptation</h3>
+            <ul>
+              <li>Fast onboarding into unfamiliar APIs, SDKs and tools</li>
+              <li>Quick technology research with AI, docs and prototypes</li>
+              <li>Comfortable switching between product, code and ops tasks</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-  <footer>
-    <div class="container">
-      <div class="row" style="justify-content:space-between; align-items:center">
-        <div>© <span id="y"></span> Михаил Лазарев. Резюме+портфолио.</div>
-        <div class="muted">Сделано с вниманием к деталям · black&gold</div>
-      </div>
-    </div>
-  </footer>
+      <section class="section experience" id="experience">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span data-lang="ru">Опыт</span><span data-lang="en">Experience</span></p>
+          <h2><span data-lang="ru">Практический фон, который помогает быстро доводить продукты до результата</span><span data-lang="en">A practical background that helps move products to results quickly</span></h2>
+        </div>
 
-  <!-- Modals (simplified) -->
-  <dialog id="modal-bpmn" class="modal">
-    <article class="card" style="max-width:900px">
-      <h3 style="margin-top:0">BPMN «Увольнение сотрудника»</h3>
-      <p class="muted">(Здесь можно вставить изображение/ссылку на Miro/Figma)</p>
-      <div class="row"><button class="btn" data-close>Закрыть</button></div>
-    </article>
-  </dialog>
-  <dialog id="modal-ai" class="modal">
-    <article class="card" style="max-width:900px">
-      <h3 style="margin-top:0">AI‑аудит звонков</h3>
-      <p class="muted">(Скриншоты/PDF отчётов, описание метрик)</p>
-      <div class="row"><button class="btn" data-close>Закрыть</button></div>
-    </article>
-  </dialog>
-  <dialog id="modal-rag" class="modal">
-    <article class="card" style="max-width:900px">
-      <h3 style="margin-top:0">RAG‑боты</h3>
-      <p class="muted">(Ссылки на демо, репозитории, диаграммы архитектуры)</p>
-      <div class="row"><button class="btn" data-close>Закрыть</button></div>
-    </article>
-  </dialog>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <time>2023 - <span data-lang="ru">сейчас</span><span data-lang="en">present</span></time>
+            <h3><span data-lang="ru">Фриланс / системный и бизнес-аналитик</span><span data-lang="en">Freelance / Systems and Business Analyst</span></h3>
+            <p><span data-lang="ru">Анализ процессов, требования, структура IT/AI-решений, прототипы, API-интеграции, оценка MVP, постановка задач и контроль качества.</span><span data-lang="en">Process analysis, requirements, IT/AI solution structure, prototypes, API integrations, MVP estimation, task setting and quality control.</span></p>
+          </article>
+          <article class="timeline-item reveal">
+            <time>2024 - 2025</time>
+            <h3>FusionAI / AI Solution Builder</h3>
+            <p><span data-lang="ru">Поиск и внедрение AI-решений, чат-боты, AI-агенты, техописания, оценка MVP, координация разработчиков и мониторинг AI-трендов.</span><span data-lang="en">AI solution discovery and implementation, chatbots, AI agents, technical documentation, MVP estimation, developer coordination and AI trend monitoring.</span></p>
+          </article>
+          <article class="timeline-item reveal">
+            <time>2024 - 2025</time>
+            <h3><span data-lang="ru">Эксперт Новострой / Bitrix и автоматизация</span><span data-lang="en">Expert Novostroy / Bitrix and automation</span></h3>
+            <p><span data-lang="ru">Битрикс24, бизнес-процессы, CRM-интеграции, поддержка пользователей, серверы, Git/GitHub и внутренние автоматизации.</span><span data-lang="en">Bitrix24, business processes, CRM integrations, user support, servers, Git/GitHub and internal automations.</span></p>
+          </article>
+        </div>
+      </section>
 
-  <!-- EXTRA MODALS -->
-  <dialog id="modal-hh" class="modal">
-    <article class="card" style="max-width:900px">
-      <h3 style="margin-top:0">HeadHunter API</h3>
-      <p class="muted">(Скриншоты Postman, сценарий интеграции, тестовые отклики)</p>
-      <div class="row"><button class="btn" data-close>Закрыть</button></div>
-    </article>
-  </dialog>
+      <section class="section objections">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span data-lang="ru">Честно о рисках</span><span data-lang="en">Clear answers</span></p>
+          <h2><span data-lang="ru">Что важно знать перед разговором</span><span data-lang="en">What is useful to know before a call</span></h2>
+        </div>
 
-  <dialog id="modal-sql" class="modal">
-    <article class="card" style="max-width:900px">
-      <h3 style="margin-top:0">SQL-отчётность</h3>
-      <p class="muted">(Примеры SQL-запросов, PDF отчётов, визуализации)</p>
-      <div class="row"><button class="btn" data-close>Закрыть</button></div>
-    </article>
-  </dialog>
+        <div class="objection-grid">
+          <article class="objection reveal">
+            <h3><span data-lang="ru">Фокус</span><span data-lang="en">Focus</span></h3>
+            <p><span data-lang="ru">Опыт широкий, но не хаотичный: всё сходится в AI/automation, workflow, dashboards, integrations и internal tools.</span><span data-lang="en">The experience is broad, but not random: it converges around AI/automation, workflow, dashboards, integrations and internal tools.</span></p>
+          </article>
+          <article class="objection reveal">
+            <h3><span data-lang="ru">AI-assisted подход</span><span data-lang="en">AI-assisted work</span></h3>
+            <p><span data-lang="ru">Активно использую собственный оплаченный набор AI-инструментов как рабочий усилитель: ресерч, код, отладка, документация. Решения проверяю через документацию, тесты, логи и реальные сценарии.</span><span data-lang="en">I maintain my own paid AI tool stack as a work amplifier: research, code, debugging and documentation. I verify decisions through docs, tests, logs and real scenarios.</span></p>
+          </article>
+          <article class="objection reveal">
+            <h3>MVP maturity</h3>
+            <p><span data-lang="ru">Я честно отделяю working MVP, beta, pilot-ready и production. При этом умею не только собрать MVP, но и довести его до разумного продуктового контура.</span><span data-lang="en">I clearly separate working MVP, beta, pilot-ready and production. I can build the MVP and keep pushing it into a practical product loop.</span></p>
+          </article>
+          <article class="objection reveal">
+            <h3><span data-lang="ru">Формат работы</span><span data-lang="en">Work format</span></h3>
+            <p><span data-lang="ru">Лучше всего раскрываюсь через погружение, асинхронный анализ, подготовленные созвоны, письменные предложения, PoC и implementation. Вместо экспромт-аудита любой темы даю проверяемые решения после контекста.</span><span data-lang="en">I am strongest with immersion, async analysis, prepared calls, written proposals, PoCs and implementation. Instead of improvising on any topic, I provide verified solutions after context.</span></p>
+          </article>
+          <article class="objection reveal">
+            <h3>Local-first</h3>
+            <p><span data-lang="ru">Local-first ускоряет проверку гипотез и снижает риск. При подтверждении ценности систему можно развивать в серверный или командный продукт.</span><span data-lang="en">Local-first speeds up validation and reduces risk. Once value is proven, the system can evolve into a server or team product.</span></p>
+          </article>
+          <article class="objection reveal">
+            <h3><span data-lang="ru">Публичность</span><span data-lang="en">Public safety</span></h3>
+            <p><span data-lang="ru">Проекты с токенами, приватными базами и серверными URL требуют очистки перед публичным показом. В портфолио используются безопасные формулировки.</span><span data-lang="en">Projects with tokens, private databases and server URLs require cleanup before public display. The portfolio uses safe wording.</span></p>
+          </article>
+        </div>
+      </section>
 
-  <script>
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
+      <section class="final-cta" id="contact">
+        <div class="final-copy reveal">
+          <p class="eyebrow"><span data-lang="ru">Следующий шаг</span><span data-lang="en">Next step</span></p>
+          <h2><span data-lang="ru">Готов обсудить роль или проект, где нужно собрать AI-MVP и довести его до продукта</span><span data-lang="en">Open to a role or project where an AI MVP needs to become a usable product</span></h2>
+          <p><span data-lang="ru">Целевые роли: AI Product Engineer, AI-assisted Product Builder, AI Automation Developer, Full-stack AI Developer, Python Automation Engineer, AI Workflow / LLM Application Developer.</span><span data-lang="en">Target roles: AI Product Engineer, AI-assisted Product Builder, AI Automation Developer, Full-stack AI Developer, Python Automation Engineer, AI Workflow / LLM Application Developer.</span></p>
+        </div>
+        <div class="final-actions reveal">
+          <a class="button primary" href="mailto:rieltor0001@gmail.com">rieltor0001@gmail.com</a>
+          <a class="button secondary" href="tel:+79992073105">+7 (999) 207-31-05</a>
+        </div>
+      </section>
+    </main>
 
-    // reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } })
-    }, { threshold: .12 });
-    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+    <footer class="footer">
+      <p><span data-lang="ru">Михаил Лазарев - AI/Product Engineer, AI-assisted product builder, системный аналитик.</span><span data-lang="en">Mikhail Lazarev - AI/Product Engineer, AI-assisted product builder, systems analyst.</span></p>
+      <p><a href="https://miklitai.github.io/systemanalyst" target="_blank" rel="noreferrer">miklitai.github.io/systemanalyst</a></p>
+    </footer>
 
-    // copy telegram
-    document.getElementById('copy')?.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText('@LazarevMikl');
-        const b = document.getElementById('copy'); b.textContent = 'Скопировано!'; setTimeout(() => b.textContent = 'Скопировать Telegram', 1600);
-      } catch (err) { alert('Скопируйте вручную: @LazarevMikl'); }
-    });
-
-    // simple modals
-    document.querySelectorAll('[data-open]').forEach(btn => {
-      btn.addEventListener('click', () => document.getElementById(btn.dataset.open).showModal());
-    });
-    document.querySelectorAll('[data-close]').forEach(btn => {
-      btn.addEventListener('click', () => btn.closest('dialog').close());
-    });
-
-    // smooth anchor scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href'); if (id.length > 1) { e.preventDefault(); document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      })
-    });
-
-    // закрытие модалки по клику вне окна
-    document.querySelectorAll('dialog').forEach(dialog => {
-      dialog.addEventListener('click', (e) => {
-        const dialogRect = dialog.querySelector('article')?.getBoundingClientRect();
-        if (!dialogRect) return;
-        // проверяем, был ли клик вне карточки
-        if (
-          e.clientX < dialogRect.left ||
-          e.clientX > dialogRect.right ||
-          e.clientY < dialogRect.top ||
-          e.clientY > dialogRect.bottom
-        ) {
-          dialog.close();
-        }
-      });
-    });
-  </script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
